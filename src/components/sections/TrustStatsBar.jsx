@@ -1,4 +1,5 @@
 import React from 'react';
+import './TrustStatsBar.css';
 
 export const TrustStatsBar = () => {
   const stats = [
@@ -9,37 +10,15 @@ export const TrustStatsBar = () => {
   ];
 
   return (
-    <section style={{
-      backgroundColor: 'var(--color-primary-navy)',
-      color: 'var(--color-white)',
-      padding: '3rem 0',
-      borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-      borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
-    }}>
+    <section className="trust-stats-section">
       <div className="container">
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: '2rem',
-          textAlign: 'center'
-        }}>
+        <div className="trust-stats-grid">
           {stats.map((stat, idx) => (
-            <div key={idx}>
-              <div style={{
-                fontSize: 'clamp(2rem, 4vw, 3rem)',
-                fontWeight: 800,
-                fontFamily: 'var(--font-primary)',
-                color: 'var(--color-primary-orange)',
-                lineHeight: 1
-              }}>
+            <div key={idx} className="trust-stat-item">
+              <div className="trust-stat-number">
                 {stat.number}
               </div>
-              <div style={{
-                fontSize: '0.95rem',
-                color: 'rgba(255, 255, 255, 0.8)',
-                marginTop: '0.5rem',
-                fontWeight: 500
-              }}>
+              <div className="trust-stat-label">
                 {stat.label}
               </div>
             </div>
