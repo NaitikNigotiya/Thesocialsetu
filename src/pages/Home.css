@@ -1028,6 +1028,14 @@
   .portfolio-grid {
     grid-template-columns: 1fr;
   }
+
+  .wrap_card {
+    --w-card: 220px;
+    --h-card: 285px;
+    --rotate-card: 12deg;
+    --insetX-card: 28px;
+    margin: 1.5rem auto 0 auto;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1136,9 +1144,10 @@
   }
 
   .wrap_card {
-    width: 100%;
-    max-width: 280px;
-    height: 320px;
-    margin: 0 auto;
+    --w-card: 165px;
+    --h-card: 215px;
+    --rotate-card: 10deg;
+    --insetX-card: 20px;
+    margin: 1rem auto 0 auto;
   }
 }
