@@ -317,3 +317,37 @@ img {
 .card-dark:hover {
   border-color: rgba(255, 255, 255, 0.2);
 }
+
+/* ==========================================================================
+   MOBILE & TOUCHSCREEN COMPATIBILITY ENFORCEMENT
+   ========================================================================== */
+img, video, iframe, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3.5rem 0;
+  }
+
+  .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .card, .card-dark {
+    padding: 1.35rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.4rem;
+    font-size: 0.95rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  input, select, textarea {
+    font-size: 16px !important; /* Prevents auto-zoom on iOS Safari */
+  }
+}

@@ -66,7 +66,7 @@ export const Pricing = () => {
         description="Transparent SME digital marketing packages starting at ₹6,999/mo. Explore SETU STARTER, SETU GROW, SETU PRO, and standalone service price list."
       />
 
-      {/* Hero Header */}
+      {/* Hero Header & Compact Disclaimer */}
       <section className="pricing-hero">
         <div className="container">
           <SectionHeader
@@ -76,40 +76,15 @@ export const Pricing = () => {
             dark={true}
           />
 
-          {/* Interactive Navigation Switcher */}
-          <div className="pricing-nav-switcher">
-            <button 
-              className="switcher-btn active"
-              onClick={() => scrollToSection('sme-packages')}
-            >
-              SME Growth Packages
-            </button>
-            <button 
-              className="switcher-btn"
-              onClick={() => scrollToSection('ala-carte')}
-            >
-              A La Carte Offerings
-            </button>
+          {/* Compact Ad Spend Disclaimer Note */}
+          <div className="disclaimer-alert-card">
+            <Info size={18} color="var(--color-primary-orange)" style={{ flexShrink: 0 }} />
+            <div className="disclaimer-text">
+              <strong>Note:</strong> Client ad spend (e.g. Meta/Google Ad budget) is paid directly to platforms and is <strong>not included</strong> in our agency management fee.
+            </div>
           </div>
         </div>
       </section>
-
-      {/* CRITICAL AD SPEND DISCLAIMER BANNER */}
-      <div className="disclaimer-banner-wrapper">
-        <div className="container">
-          <div className="disclaimer-alert-card">
-            <div className="disclaimer-icon">
-              <Info size={24} color="var(--color-primary-orange)" />
-            </div>
-            <div className="disclaimer-content">
-              <h4 className="disclaimer-title">Important Note Regarding Advertising Budget</h4>
-              <p className="disclaimer-text">
-                Client ad spend / advertising budget is <strong>not included</strong> in our management fee. For example, if your business spends ₹10,000 on Meta Ads, you pay the ₹10,000 ad spend directly to Meta plus the package management fee separately. You maintain 100% account and data ownership.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* STARTUP PACKAGES RETAINER CARDS */}
       <section id="sme-packages" className="section packages-section">

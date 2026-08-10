@@ -105,6 +105,98 @@
   min-height: 100px;
 }
 
+/* Package Radio Selector Grid */
+.package-radio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: 0.35rem;
+}
+
+.package-radio-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-off-white);
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+  color: var(--color-body);
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.package-radio-item:hover {
+  border-color: rgba(250, 119, 16, 0.4);
+  background-color: #ffffff;
+}
+
+.package-radio-item.active {
+  background-color: rgba(250, 119, 16, 0.08);
+  border-color: var(--color-primary-orange);
+  color: var(--color-primary-navy);
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(250, 119, 16, 0.12);
+}
+
+.package-radio-item input[type="radio"] {
+  accent-color: var(--color-primary-orange);
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Compact Services Grid */
+.compact-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.compact-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.5rem 0.75rem;
+  background-color: var(--color-off-white);
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-secondary);
+  font-size: 0.875rem;
+  color: var(--color-primary-navy);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.compact-checkbox-item:hover {
+  border-color: var(--color-primary-orange);
+  background-color: #ffffff;
+}
+
+.compact-checkbox-item.checked {
+  background-color: rgba(250, 119, 16, 0.08);
+  border-color: var(--color-primary-orange);
+  color: var(--color-primary-navy);
+  font-weight: 700;
+}
+
+.compact-checkbox-item input[type="checkbox"] {
+  accent-color: var(--color-primary-orange);
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
 /* Services Checkbox Multi-Select Grid */
 .services-checkbox-grid {
   display: grid;
@@ -116,8 +208,8 @@
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.6rem 0.85rem;
-  background-color: var(--color-off-white);
+  padding: 0.65rem 0.85rem;
+  background-color: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: var(--radius-sm);
   cursor: pointer;
@@ -131,20 +223,24 @@
 
 .checkbox-item:hover {
   border-color: var(--color-primary-orange);
+  background-color: rgba(250, 119, 16, 0.03);
 }
 
 .checkbox-item.checked {
   background-color: rgba(250, 119, 16, 0.08);
   border-color: var(--color-primary-orange);
   color: var(--color-primary-navy);
-  font-weight: 600;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(250, 119, 16, 0.1);
 }
 
 .checkbox-item input[type="checkbox"] {
   accent-color: var(--color-primary-orange);
-  width: 16px;
-  height: 16px;
+  width: 17px;
+  height: 17px;
+  margin: 0;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .submit-inquiry-btn {

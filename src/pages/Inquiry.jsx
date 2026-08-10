@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { 
   Mail, 
   Phone, 
@@ -9,7 +10,8 @@ import {
   MessageSquare,
   Sparkles,
   ArrowRight,
-  ShieldCheck
+  ShieldCheck,
+  Check
 } from 'lucide-react';
 import SEO from '../components/sections/SEO';
 import Button from '../components/ui/Button';
@@ -18,59 +20,115 @@ import './Inquiry.css';
 const AGENCY_EMAIL = import.meta.env.VITE_AGENCY_EMAIL || 'hello.thesocialsetu@gmail.com';
 const AGENCY_PHONE = '6267137892';
 const WHATSAPP_LINK = `https://wa.me/91${AGENCY_PHONE}?text=${encodeURIComponent('Hi, I want to discuss digital marketing services for my business.')}`;
+const INSTAGRAM_URL = import.meta.env.VITE_INSTAGRAM_URL || 'https://www.instagram.com/thesocialsetu_?igsh=MTRoYWwyYTQ1N3VlNw==';
+const LINKEDIN_URL = import.meta.env.VITE_LINKEDIN_URL || 'https://www.linkedin.com/company/the-social-setu/';
 
+const InstagramIcon = ({ size = 16, color = 'var(--color-primary-orange)' }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+);
+
+const LinkedinIcon = ({ size = 16, color = 'var(--color-primary-orange)' }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+  </svg>
+);
+
+// 10 Core Services Options
 const SERVICES_OPTIONS = [
-  'Social Media Marketing',
+  'Social Media Management',
   'Meta Ads',
   'Google Ads',
-  'SEO',
+  'SEO & Local SEO',
   'Website Development',
-  'Content Creation',
+  'Social Media Marketing',
+  'Content Creation & Design',
   'Google Business Profile',
-  'Email Marketing'
+  'Branding (Basic)',
+  'Digital Marketing Consultation'
+];
+
+// SME Retainer Packages
+const PACKAGE_OPTIONS = [
+  'SETU GROW (₹11,999/mo) — Recommended',
+  'SETU STARTER (₹6,999/mo)',
+  'SETU PRO (₹19,999/mo)',
+  'Custom Scope / A La Carte'
 ];
 
 const BUSINESS_TYPES = [
-  'Retail',
-  'Restaurant/Café',
-  'Salon',
-  'Gym',
-  'Clinic',
-  'Real Estate',
-  'Education',
-  'Automobile',
-  'Fashion',
-  'D2C',
+  'Retail & Local Store',
+  'Restaurant / Café',
+  'Salon & Beauty',
+  'Gym & Fitness',
+  'Clinic & Healthcare',
+  'Real Estate & Developers',
+  'EdTech & Coaching',
+  'Automobile Dealer',
+  'Fashion & Apparel',
+  'D2C Brand',
   'Manufacturing',
   'Service Business',
   'Other'
 ];
 
 const BUDGET_RANGES = [
-  'Under ₹10k',
-  '₹10k-25k',
-  '₹25k-50k',
-  '₹50k-1L',
-  '₹1L+'
+  'Under ₹10,000 / month (Setu Starter)',
+  '₹10,000 - ₹20,000 / month (Setu Grow)',
+  '₹20,000 - ₹50,000 / month (Setu Pro)',
+  '₹50,000 - ₹1,00,000+ / month (Enterprise Scaling)'
 ];
 
 export const Inquiry = () => {
+  const [searchParams] = useSearchParams();
+
   // Form State
   const [formData, setFormData] = useState({
     name: '',
     businessName: '',
     phone: '',
     email: '',
-    businessType: 'Retail',
+    businessType: 'Retail & Local Store',
+    selectedPackage: 'SETU GROW (₹11,999/mo) — Recommended',
+    primaryService: 'Meta Ads',
     website: '',
     instagramHandle: '',
-    marketingBudget: '₹25k-50k',
-    servicesRequired: ['Meta Ads', 'Social Media Marketing'],
+    marketingBudget: '₹10,000 - ₹20,000 / month (Setu Grow)',
+    additionalServices: ['Social Media Management'],
     message: ''
   });
 
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Pre-fill form from URL query parameters (e.g. ?service=meta-ads or ?plan=grow)
+  useEffect(() => {
+    const paramPlan = searchParams.get('plan') || searchParams.get('package');
+    const paramService = searchParams.get('service');
+
+    if (paramPlan) {
+      if (paramPlan.toLowerCase() === 'starter') {
+        setFormData(prev => ({ ...prev, selectedPackage: 'SETU STARTER (₹6,999/mo)' }));
+      } else if (paramPlan.toLowerCase() === 'grow') {
+        setFormData(prev => ({ ...prev, selectedPackage: 'SETU GROW (₹11,999/mo) — Recommended' }));
+      } else if (paramPlan.toLowerCase() === 'pro') {
+        setFormData(prev => ({ ...prev, selectedPackage: 'SETU PRO (₹19,999/mo)' }));
+      }
+    }
+
+    if (paramService) {
+      const cleanSvc = paramService.replace(/-/g, ' ').toLowerCase();
+      const matchSvc = SERVICES_OPTIONS.find(s => s.toLowerCase().includes(cleanSvc) || cleanSvc.includes(s.toLowerCase()));
+      if (matchSvc) {
+        setFormData(prev => ({ ...prev, primaryService: matchSvc }));
+      }
+    }
+  }, [searchParams]);
 
   // Booking Widget State
   const [bookingData, setBookingData] = useState({
@@ -86,16 +144,16 @@ export const Inquiry = () => {
 
   const handleCheckboxToggle = (service) => {
     setFormData((prev) => {
-      const exists = prev.servicesRequired.includes(service);
+      const exists = prev.additionalServices.includes(service);
       if (exists) {
         return {
           ...prev,
-          servicesRequired: prev.servicesRequired.filter((s) => s !== service)
+          additionalServices: prev.additionalServices.filter((s) => s !== service)
         };
       } else {
         return {
           ...prev,
-          servicesRequired: [...prev.servicesRequired, service]
+          additionalServices: [...prev.additionalServices, service]
         };
       }
     });
@@ -105,13 +163,14 @@ export const Inquiry = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API / Webhook submission
     setTimeout(() => {
       setIsSubmitting(false);
       setFormSubmitted(true);
       if (window.dataLayer) {
         window.dataLayer.push({
           event: 'inquiry_submitted',
+          package: formData.selectedPackage,
+          primary_service: formData.primaryService,
           business_type: formData.businessType,
           budget: formData.marketingBudget
         });
@@ -127,8 +186,8 @@ export const Inquiry = () => {
   return (
     <>
       <SEO
-        title="Get Free Consultation & Marketing Strategy"
-        description="Request a free digital marketing consultation and audit for your business from The Social Setu growth leads."
+        title="Get Free Strategy & Campaign Consultation"
+        description="Request a free digital marketing consultation and strategy proposal from The Social Setu growth leads."
       />
 
       <div className="inquiry-page">
@@ -137,13 +196,13 @@ export const Inquiry = () => {
           <div className="inquiry-header">
             <div className="badge badge-orange" style={{ marginBottom: '1rem' }}>
               <Sparkles size={14} color="var(--color-primary-orange)" />
-              <span>Get Free Consultation</span>
+              <span>Free Strategy & Campaign Audit</span>
             </div>
             <h1 className="inquiry-title">
-              Let's Talk About Growing Your Business.
+              Let's Scale Your Business Online.
             </h1>
             <p className="inquiry-subheading">
-              Tell us a bit about your business — we'll get back within 24 hours with a free strategy call.
+              Tell us about your business. Select your required service or retainer package for a free 24-hour response strategy.
             </p>
           </div>
 
@@ -156,37 +215,37 @@ export const Inquiry = () => {
                   <div className="success-icon-box">
                     <CheckCircle2 size={54} color="#047857" />
                   </div>
-                  <h3 className="success-title">Inquiry Received!</h3>
+                  <h3 className="success-title">Inquiry Submitted Successfully!</h3>
                   <p className="success-desc">
-                    Thanks! We've received your inquiry and will contact you within 24 hours.
+                    Thank you, <strong>{formData.name}</strong>! We have received your inquiry for <strong>{formData.businessName}</strong> and will reach out within 24 hours.
                   </p>
                   <p className="success-subtext">
-                    Our Senior Growth Strategist is reviewing your details to prepare your custom marketing audit.
+                    Our Growth Strategist is reviewing your details to prepare your custom marketing audit and proposal.
                   </p>
                   <button 
                     className="btn btn-outline" 
                     onClick={() => setFormSubmitted(false)}
                     style={{ marginTop: '1.5rem' }}
                   >
-                    Submit Another Request
+                    Submit Another Inquiry
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmitForm} className="inquiry-form">
-                  <h2 className="form-heading">Fill Out Your Details</h2>
+                  <h2 className="form-heading">Fill Out Project & Contact Info</h2>
 
                   {/* Name & Business Name */}
                   <div className="form-row-2">
                     <div className="form-group">
                       <label className="form-label" htmlFor="name">
-                        Name <span className="asterisk">*</span>
+                        Your Name <span className="asterisk">*</span>
                       </label>
                       <input
                         type="text"
                         id="name"
                         name="name"
                         className="form-input"
-                        placeholder="e.g. Rahul Verma"
+                        placeholder="e.g. Rahul Sharma"
                         required
                         value={formData.name}
                         onChange={handleInputChange}
@@ -202,7 +261,7 @@ export const Inquiry = () => {
                         id="businessName"
                         name="businessName"
                         className="form-input"
-                        placeholder="e.g. Apex Fitness Club"
+                        placeholder="e.g. Apex Lifestyle Studio"
                         required
                         value={formData.businessName}
                         onChange={handleInputChange}
@@ -244,11 +303,11 @@ export const Inquiry = () => {
                     </div>
                   </div>
 
-                  {/* Business Type & Monthly Marketing Budget */}
+                  {/* Industry Category & Primary Service Needed */}
                   <div className="form-row-2">
                     <div className="form-group">
                       <label className="form-label" htmlFor="businessType">
-                        Business Type <span className="asterisk">*</span>
+                        Industry Category <span className="asterisk">*</span>
                       </label>
                       <select
                         id="businessType"
@@ -260,6 +319,44 @@ export const Inquiry = () => {
                       >
                         {BUSINESS_TYPES.map((type) => (
                           <option key={type} value={type}>{type}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="form-group">
+                      <label className="form-label" htmlFor="primaryService">
+                        Primary Service Required <span className="asterisk">*</span>
+                      </label>
+                      <select
+                        id="primaryService"
+                        name="primaryService"
+                        className="form-select"
+                        required
+                        value={formData.primaryService}
+                        onChange={handleInputChange}
+                      >
+                        {SERVICES_OPTIONS.map((svc) => (
+                          <option key={svc} value={svc}>{svc}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Preferred Package & Monthly Budget */}
+                  <div className="form-row-2">
+                    <div className="form-group">
+                      <label className="form-label" htmlFor="selectedPackage">
+                        Preferred Retainer Package
+                      </label>
+                      <select
+                        id="selectedPackage"
+                        name="selectedPackage"
+                        className="form-select"
+                        value={formData.selectedPackage}
+                        onChange={handleInputChange}
+                      >
+                        {PACKAGE_OPTIONS.map((pkg) => (
+                          <option key={pkg} value={pkg}>{pkg}</option>
                         ))}
                       </select>
                     </div>
@@ -286,14 +383,14 @@ export const Inquiry = () => {
                   <div className="form-row-2">
                     <div className="form-group">
                       <label className="form-label" htmlFor="website">
-                        Website URL
+                        Website Link (if any)
                       </label>
                       <input
                         type="url"
                         id="website"
                         name="website"
                         className="form-input"
-                        placeholder="if you have one"
+                        placeholder="https://yourbrand.com"
                         value={formData.website}
                         onChange={handleInputChange}
                       />
@@ -315,16 +412,16 @@ export const Inquiry = () => {
                     </div>
                   </div>
 
-                  {/* Services Required Checkboxes */}
+                  {/* Compact Additional Services Checklist */}
                   <div className="form-group">
-                    <label className="form-label">
-                      Services Required <span className="asterisk">*</span>
+                    <label className="form-label" style={{ marginBottom: '0.6rem' }}>
+                      Additional Services Needed (Optional)
                     </label>
-                    <div className="services-checkbox-grid">
+                    <div className="compact-services-grid">
                       {SERVICES_OPTIONS.map((service) => {
-                        const isChecked = formData.servicesRequired.includes(service);
+                        const isChecked = formData.additionalServices.includes(service);
                         return (
-                          <label key={service} className={`checkbox-item ${isChecked ? 'checked' : ''}`}>
+                          <label key={service} className={`compact-checkbox-item ${isChecked ? 'checked' : ''}`}>
                             <input
                               type="checkbox"
                               checked={isChecked}
@@ -340,13 +437,13 @@ export const Inquiry = () => {
                   {/* Message */}
                   <div className="form-group">
                     <label className="form-label" htmlFor="message">
-                      Tell us about your goals
+                      Share your growth targets or campaign notes
                     </label>
                     <textarea
                       id="message"
                       name="message"
                       className="form-textarea"
-                      placeholder="Share your current marketing bottlenecks, target leads, or revenue goals..."
+                      placeholder="Tell us about your current bottlenecks, target leads, or specific campaign needs..."
                       rows={4}
                       value={formData.message}
                       onChange={handleInputChange}
@@ -361,28 +458,28 @@ export const Inquiry = () => {
                     disabled={isSubmitting}
                     className="submit-inquiry-btn"
                   >
-                    {isSubmitting ? 'Sending Inquiry...' : 'Send My Inquiry'}
+                    {isSubmitting ? 'Sending Request...' : 'Submit Inquiry & Request Proposal'}
                   </Button>
                 </form>
               )}
 
-              {/* 3. Trust Strip Below Form */}
+              {/* Trust Strip Below Form */}
               <div className="trust-strip">
-                <span>50+ Businesses</span>
+                <span>50+ SME Clients</span>
                 <span className="dot-separator">•</span>
-                <span>100+ Campaigns</span>
+                <span>₹5Cr+ Managed Spend</span>
                 <span className="dot-separator">•</span>
-                <span>10+ Industries</span>
+                <span>Transparent Retainers</span>
               </div>
             </div>
 
-            {/* RIGHT COLUMN: Sidebar (Supporting Content) */}
+            {/* RIGHT COLUMN: Sidebar */}
             <div className="inquiry-sidebar">
-              {/* Direct Talk / WhatsApp Card */}
+              {/* WhatsApp CTA Card */}
               <div className="card-dark whatsapp-cta-card">
-                <h3 className="sidebar-title text-white">Prefer to talk directly?</h3>
+                <h3 className="sidebar-title text-white">Prefer instant consultation?</h3>
                 <p className="sidebar-desc text-muted">
-                  Connect with our lead strategists instantly on WhatsApp for immediate campaign consultation.
+                  Chat directly with our lead growth strategist on WhatsApp for instant pricing & advice.
                 </p>
 
                 <a 
@@ -392,7 +489,7 @@ export const Inquiry = () => {
                   className="whatsapp-direct-btn"
                 >
                   <MessageSquare size={18} />
-                  <span>Chat with us on WhatsApp</span>
+                  <span>Chat on WhatsApp</span>
                 </a>
 
                 <div className="contact-list">
@@ -404,6 +501,14 @@ export const Inquiry = () => {
                     <Mail size={16} color="var(--color-primary-orange)" />
                     <span>{AGENCY_EMAIL}</span>
                   </a>
+                  <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="contact-item">
+                    <InstagramIcon size={16} color="var(--color-primary-orange)" />
+                    <span>Instagram (@thesocialsetu_)</span>
+                  </a>
+                  <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="contact-item">
+                    <LinkedinIcon size={16} color="var(--color-primary-orange)" />
+                    <span>LinkedIn (The Social Setu)</span>
+                  </a>
                 </div>
               </div>
 
@@ -414,40 +519,40 @@ export const Inquiry = () => {
                   <div className="step-item">
                     <div className="step-number">1</div>
                     <div className="step-text">
-                      <strong>We review your inquiry</strong>
-                      <p>Our squad analyzes your website & ad presence.</p>
+                      <strong>Audit & Review</strong>
+                      <p>Our team inspects your business pages & website.</p>
                     </div>
                   </div>
 
                   <div className="step-item">
                     <div className="step-number">2</div>
                     <div className="step-text">
-                      <strong>We schedule a free call</strong>
-                      <p>30-minute deep dive on your growth bottlenecks.</p>
+                      <strong>Discovery Call</strong>
+                      <p>20-minute strategy call to map your lead goals.</p>
                     </div>
                   </div>
 
                   <div className="step-item">
                     <div className="step-number">3</div>
                     <div className="step-text">
-                      <strong>You get a custom proposal</strong>
-                      <p>Data-backed campaign roadmap & ROI plan.</p>
+                      <strong>Custom Proposal</strong>
+                      <p>Clear, transparent campaign roadmap & pricing.</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Optional Slot Booking Widget */}
+              {/* Slot Booking Widget */}
               <div className="card booking-widget-card">
                 <div className="booking-header">
                   <Calendar size={18} color="var(--color-primary-orange)" />
-                  <h4 className="booking-title">Select Preferred Date & Time</h4>
+                  <h4 className="booking-title">Book a 1-on-1 Strategy Call</h4>
                 </div>
 
                 {bookingConfirmed ? (
                   <div className="booking-success">
                     <CheckCircle2 size={32} color="#047857" style={{ marginBottom: '0.5rem' }} />
-                    <p className="booking-success-text">Your consultation slot has been booked successfully!</p>
+                    <p className="booking-success-text">Your call slot has been reserved!</p>
                   </div>
                 ) : (
                   <form onSubmit={handleBookingSubmit} className="booking-form">

@@ -8,6 +8,7 @@ export const caseStudiesData = [
     problem: 'Nexus EdTech was facing high customer acquisition costs (CAC) on legacy Meta campaigns, low lead quality, and a 4-day lag in lead follow-ups by their admissions team.',
     strategy: 'We rebuilt their landing page funnels, introduced direct Click-to-WhatsApp performance ads, implemented automated lead qualification bots, and created targeted Google Search campaigns for high-intent keywords.',
     servicesUsed: ['Performance Ads (PPC)', 'Lead Generation Funnels', 'WhatsApp Marketing & Automation'],
+    heroImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80',
     results: [
       { metric: '340%', label: 'Increase in Paid Student Enrollments' },
       { metric: '48%', label: 'Reduction in Cost Per Lead (CPL)' },
@@ -28,6 +29,7 @@ export const caseStudiesData = [
     problem: 'Aura struggled with low customer lifetime value (LTV), ad fatigue on social platforms, and poor website checkout conversion rates.',
     strategy: 'Implemented a content-first Reels strategy showcasing user transformation stories, created lookalike ad funnels, and optimized web checkout UX alongside automated abandoned cart recovery sequences.',
     servicesUsed: ['Performance Ads (PPC)', 'Social Media Management', 'Web Design & CRO', 'Video Marketing & Short Reels'],
+    heroImage: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1200&q=80',
     results: [
       { metric: '5.4x', label: 'Revenue Growth in 7 Months' },
       { metric: '3.9x', label: 'Average Meta Ad Spend ROAS' },
@@ -48,6 +50,7 @@ export const caseStudiesData = [
     problem: 'Apex clinics relied heavily on print media and local footfall, suffering inconsistent patient appointments and zero digital tracking of marketing spend.',
     strategy: 'Deployed geo-targeted Google Local Search ads, created localized clinic virtual tour videos, built one-click booking landing pages, and established a direct SMS/WhatsApp appointment reminder system.',
     servicesUsed: ['Performance Ads (PPC)', 'SEO & Organic Growth', 'Lead Generation Funnels'],
+    heroImage: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80',
     results: [
       { metric: '1,200+', label: 'Monthly Patient Consultations' },
       { metric: '+280%', label: 'Organic Local Map Pack Visibility' },
@@ -68,6 +71,7 @@ export const caseStudiesData = [
     problem: 'Horizon needed ultra-wealthy buyer inquiries for premium 3BHK and penthouse units in a competitive real estate market filled with noisy, low-quality lead brokers.',
     strategy: 'Engineered an exclusive invitation-only landing page, deployed hyper-segmented LinkedIn and Instagram video ads targeting high-net-worth individuals, and implemented instant phone verification for leads.',
     servicesUsed: ['Performance Ads (PPC)', 'Lead Generation Funnels', 'Brand Strategy & Identity'],
+    heroImage: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
     results: [
       { metric: '₹45 Cr+', label: 'Property Sales Closed' },
       { metric: '450+', label: 'HNW Qualified Site Visit Inquiries' },
@@ -88,6 +92,7 @@ export const caseStudiesData = [
     problem: 'CloudScale had high organic traffic but low demo request conversions from key enterprise decision-makers (CHROs and IT Heads).',
     strategy: 'Developed an interactive ROI calculator tool, published authoritative B2B industry research reports, and ran targeted LinkedIn ABM campaigns pointing to specialized landing pages.',
     servicesUsed: ['SEO & Organic Growth', 'Brand Strategy & Identity', 'Lead Generation Funnels'],
+    heroImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
     results: [
       { metric: '$1.2M', label: 'Pipeline Opportunity Value Generated' },
       { metric: '+195%', label: 'Demo Request Submissions' },
@@ -99,5 +104,99 @@ export const caseStudiesData = [
       author: 'Meera Nair',
       designation: 'Head of Growth, CloudScale Tech'
     }
+  }
+];
+
+// Minimal Full-Bleed Masonry Work Portfolio Gallery Dataset (Various Aspect Ratios)
+export const workGalleryItems = [
+  {
+    id: 1,
+    slug: 'nexus-edtech-lead-generation',
+    client: 'Nexus EdTech Academy',
+    category: 'EdTech & Lead Funnels',
+    title: 'EdTech Multi-Channel Enrollment Campaign',
+    stats: '+340% Enrollments',
+    aspect: 'landscape',
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    id: 2,
+    slug: 'aura-d2c-ecommerce-growth',
+    client: 'Aura Lifestyle',
+    category: 'D2C E-commerce & Reels',
+    title: 'Aura Skincare Visual Campaign & Reels',
+    stats: '5.4x Revenue Growth',
+    aspect: 'portrait',
+    image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=900&q=80'
+  },
+  {
+    id: 3,
+    slug: 'horizon-realty-luxury-leads',
+    client: 'Horizon Prime Developers',
+    category: 'Real Estate & Luxury',
+    title: 'Horizon Luxury Residential High-Rise Launch',
+    stats: '₹45 Cr Sales Closed',
+    aspect: 'portrait',
+    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80'
+  },
+  {
+    id: 4,
+    slug: 'apex-medica-clinic-patient-funnel',
+    client: 'Apex Aesthetics Chain',
+    category: 'Healthcare & Local Ads',
+    title: 'Apex Dental & Clinic Patient Acquisition',
+    stats: '1,200+ Monthly Bookings',
+    aspect: 'landscape',
+    image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    id: 5,
+    slug: 'cloudscale-saas-b2b-pipeline',
+    client: 'CloudScale Tech',
+    category: 'B2B SaaS & ABM',
+    title: 'CloudScale B2B Enterprise Funnel UI',
+    stats: '$1.2M Sales Pipeline',
+    aspect: 'square',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80'
+  },
+  {
+    id: 6,
+    slug: 'aura-d2c-ecommerce-growth',
+    client: 'Aura Lifestyle',
+    category: 'Brand Photography',
+    title: 'Aura Natural Botanical Product Shoot',
+    stats: '3.9x Meta ROAS',
+    aspect: 'landscape',
+    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    id: 7,
+    slug: 'horizon-realty-luxury-leads',
+    client: 'Horizon Prime Developers',
+    category: 'Interior Architecture',
+    title: 'Penthouse Luxury Suite Virtual Tour Assets',
+    stats: '14.2% Site Visit CVR',
+    aspect: 'square',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80'
+  },
+  {
+    id: 8,
+    slug: 'nexus-edtech-lead-generation',
+    client: 'Nexus EdTech Academy',
+    category: 'Interactive Learning',
+    title: 'Nexus Student Portal & Mobile UI',
+    stats: '15,000+ Leads',
+    aspect: 'portrait',
+    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80'
+  },
+  {
+    id: 9,
+    slug: 'apex-medica-clinic-patient-funnel',
+    client: 'Apex Aesthetics Chain',
+    category: 'Clinic Branding',
+    title: 'Apex Dental Care Modern Clinic Suite',
+    stats: '+280% Local Map Reach',
+    aspect: 'portrait',
+    image: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=80'
   }
 ];
