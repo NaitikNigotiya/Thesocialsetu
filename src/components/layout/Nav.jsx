@@ -211,7 +211,7 @@ export const Nav = () => {
 
             {/* Career */}
             <li>
-              <NavLink to="/about" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')} onClick={closeMobileMenu}>
+              <NavLink to="/careers" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')} onClick={closeMobileMenu}>
                 Career
               </NavLink>
             </li>

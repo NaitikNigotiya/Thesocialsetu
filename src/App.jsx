@@ -12,6 +12,7 @@ import CaseStudyDetail from './pages/CaseStudyDetail';
 import About from './pages/About';
 import Gallery from './pages/Gallery';
 import Pricing from './pages/Pricing';
+import Career from './pages/Career';
 import Inquiry from './pages/Inquiry';
 import NotFound from './pages/NotFound';
 
@@ -28,6 +29,7 @@ export const App = () => {
           <Route path="about" element={<About />} />
           <Route path="gallery" element={<Gallery />} />
           <Route path="pricing" element={<Pricing />} />
+          <Route path="careers" element={<Career />} />
           <Route path="inquiry" element={<Inquiry />} />
           <Route path="*" element={<NotFound />} />
         </Route>
