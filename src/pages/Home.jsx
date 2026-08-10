@@ -393,7 +393,7 @@ export const Home = () => {
             </p>
           </div>
 
-          <div className="dark-services-grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
+          <div className="dark-services-grid">
             {heroServices.map((service) => (
               <Link to={`/services/${service.slug}`} key={service.slug} className="card-dark dark-service-card hero-highlight-card">
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
