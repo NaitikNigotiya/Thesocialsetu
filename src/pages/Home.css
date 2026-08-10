@@ -655,12 +655,12 @@
 
 .dark-services-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
 }
 
 .dark-service-card {
-  padding: 1.75rem;
+  padding: 1.4rem 1.15rem;
   border-radius: var(--radius-md);
   text-decoration: none;
   display: flex;
@@ -975,6 +975,13 @@
 /* -----------------------------------------------------------------------------
    RESPONSIVE BREAKPOINTS (Mobile-First Enforcement)
 ----------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .dark-services-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+}
+
 @media (max-width: 992px) {
   .hero-grid {
     grid-template-columns: 1fr;
