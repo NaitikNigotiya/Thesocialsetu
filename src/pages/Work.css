@@ -1,0 +1,25 @@
+/* Work Page Styles */
+.work-hero {
+  background-color: var(--color-primary-navy);
+  color: var(--color-white);
+  padding: 4.5rem 0;
+  text-align: center;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(25, 33, 47, 0.15);
+  background: #ffffff;
+  color: var(--color-primary-navy);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background-color: var(--color-primary-navy);
+  color: var(--color-white);
+}

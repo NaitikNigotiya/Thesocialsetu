@@ -1,0 +1,7 @@
+/* Services page styles */
+.services-hero {
+  background-color: var(--color-primary-navy);
+  color: var(--color-white);
+  padding: 4.5rem 0;
+  text-align: center;
+}

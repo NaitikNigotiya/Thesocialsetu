@@ -1,0 +1,8 @@
+/* Minimal reset file - primary tokens live in design-system.css */
+@import "./styles/design-system.css";
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

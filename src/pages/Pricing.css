@@ -1,0 +1,394 @@
+/* Pricing & Packages Page Styles */
+.pricing-hero {
+  background-color: var(--color-primary-navy);
+  color: var(--color-white);
+  padding: 4.5rem 0 3.5rem 0;
+  text-align: center;
+}
+
+/* Interactive Navigation Switcher */
+.pricing-nav-switcher {
+  display: inline-flex;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 40px;
+  padding: 4px;
+  margin-top: 2rem;
+}
+
+.switcher-btn {
+  background: transparent;
+  border: none;
+  color: #cbd5e1;
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.65rem 1.65rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.switcher-btn:hover,
+.switcher-btn.active {
+  background-color: var(--color-primary-orange);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(250, 119, 16, 0.4);
+}
+
+/* Disclaimer Alert Card */
+.disclaimer-banner-wrapper {
+  background-color: var(--color-primary-navy);
+  padding-bottom: 2.5rem;
+}
+
+.disclaimer-alert-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(250, 119, 16, 0.35);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.disclaimer-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(250, 119, 16, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.disclaimer-title {
+  font-family: var(--font-primary);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.35rem;
+}
+
+.disclaimer-text {
+  font-family: var(--font-secondary);
+  font-size: 0.925rem;
+  color: #cbd5e1;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Packages Grid & Cards */
+.packages-section {
+  background-color: #ffffff;
+  padding: 5rem 0;
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.package-card {
+  background-color: #ffffff;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(25, 33, 47, 0.1);
+  box-shadow: 0 4px 20px rgba(15, 23, 38, 0.05);
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.package-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(15, 23, 38, 0.1);
+}
+
+.popular-card {
+  border: 2px solid var(--color-primary-orange);
+  box-shadow: 0 12px 35px rgba(250, 119, 16, 0.15);
+  transform: scale(1.02);
+}
+
+.popular-card:hover {
+  transform: scale(1.02) translateY(-6px);
+}
+
+.popular-badge-ribbon {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-primary-orange);
+  color: #ffffff;
+  font-family: var(--font-primary);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 0.3rem 1rem;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 10px rgba(250, 119, 16, 0.4);
+}
+
+.package-card-header {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(25, 33, 47, 0.08);
+}
+
+.package-badge {
+  display: inline-block;
+  font-family: var(--font-primary);
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: var(--color-primary-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.package-name {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  margin-bottom: 0.75rem;
+}
+
+.package-price-box {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.package-price {
+  font-family: var(--font-primary);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+}
+
+.package-period {
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.package-desc {
+  font-family: var(--font-secondary);
+  font-size: 0.925rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Features List */
+.package-features-list {
+  flex-grow: 1;
+  margin-bottom: 2rem;
+}
+
+.features-title {
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.package-features-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.package-features-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-family: var(--font-secondary);
+  font-size: 0.925rem;
+  color: var(--color-body);
+  margin-bottom: 0.75rem;
+  line-height: 1.45;
+}
+
+/* Comparison Table */
+.comparison-section {
+  padding: 5rem 0;
+}
+
+.table-responsive-wrapper {
+  overflow-x: auto;
+  background-color: #ffffff;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 20px rgba(15, 23, 38, 0.05);
+  border: 1px solid rgba(25, 33, 47, 0.08);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.comparison-table th {
+  padding: 1.25rem 1.5rem;
+  background-color: var(--color-primary-navy);
+  color: #ffffff;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  border-bottom: 2px solid rgba(250, 119, 16, 0.3);
+}
+
+.table-price {
+  font-size: 0.85rem;
+  color: var(--color-light-orange);
+  font-weight: 600;
+}
+
+.comparison-table td {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(25, 33, 47, 0.06);
+  font-family: var(--font-secondary);
+  font-size: 0.925rem;
+  color: var(--color-body);
+}
+
+.feature-name {
+  font-weight: 600;
+  color: var(--color-primary-navy);
+  width: 40%;
+}
+
+.cell-value {
+  text-align: center;
+  width: 20%;
+}
+
+.highlight-col {
+  background-color: rgba(250, 119, 16, 0.04);
+}
+
+/* A La Carte Price List Grid */
+.ala-carte-section {
+  padding: 5rem 0;
+  background-color: #ffffff;
+}
+
+.pricing-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-bottom: 2.5rem;
+}
+
+.starter-price-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.price-item-card {
+  background-color: #ffffff;
+  border: 1px solid rgba(25, 33, 47, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-shadow: 0 2px 10px rgba(15, 23, 38, 0.03);
+  transition: all 0.25s ease;
+}
+
+.price-item-card:hover {
+  border-color: rgba(250, 119, 16, 0.3);
+  box-shadow: 0 6px 20px rgba(15, 23, 38, 0.08);
+}
+
+.item-category-tag {
+  font-family: var(--font-primary);
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: var(--color-primary-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.2rem;
+  display: block;
+}
+
+.item-service-name {
+  font-family: var(--font-primary);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin: 0;
+}
+
+.price-item-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.item-starter-price {
+  font-family: var(--font-primary);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+}
+
+@media (max-width: 992px) {
+  .packages-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .popular-card {
+    transform: none;
+  }
+
+  .popular-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .starter-price-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .disclaimer-alert-card {
+    flex-direction: column;
+    padding: 1.25rem;
+  }
+
+  .price-item-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .price-item-right {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+  }
+}

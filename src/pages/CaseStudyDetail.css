@@ -1,0 +1,15 @@
+/* Case Study Detail Styles */
+.cs-hero {
+  background-color: var(--color-primary-navy);
+  color: var(--color-white);
+  padding: 4.5rem 0;
+}
+
+.cs-metric-card {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(25, 33, 47, 0.08);
+}
