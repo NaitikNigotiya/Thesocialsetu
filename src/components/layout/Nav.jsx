@@ -82,14 +82,22 @@ export const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          if (scrollY > 50) {
+            setScrolled(true);
+          } else if (scrollY < 15) {
+            setScrolled(false);
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -102,9 +110,9 @@ export const Nav = () => {
   };
 
   return (
-    <header className={`header-wrapper ${scrolled ? 'is-scrolled' : ''}`}>
+    <header className="header-wrapper">
       {/* Top Info Bar */}
-      <div className={`top-infobar-wrapper ${scrolled ? 'hidden' : ''}`}>
+      <div className="top-infobar-wrapper">
         <div className="top-infobar-inner">
           <div className="top-infobar">
             <div className="container infobar-container">
@@ -138,7 +146,7 @@ export const Nav = () => {
       </div>
 
       {/* Main Navbar */}
-      <nav className="navbar">
+      <nav className={`navbar ${scrolled ? 'is-scrolled' : ''}`}>
         <div className="container nav-container">
           {/* Brand Logo */}
           <Link to="/" className="nav-logo" onClick={closeMobileMenu}>
