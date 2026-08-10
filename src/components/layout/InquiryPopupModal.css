@@ -1,0 +1,270 @@
+/* Entrance Lead Inquiry Popup Modal Styles */
+.popup-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 23, 38, 0.65);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.popup-modal-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 580px;
+  position: relative;
+  padding: 2.25rem 2.5rem;
+  animation: modalSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.popup-close-btn {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #000000;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  z-index: 10;
+}
+
+.popup-close-btn:hover {
+  transform: scale(1.1);
+  background-color: var(--color-primary-orange);
+}
+
+.popup-header {
+  margin-bottom: 1.5rem;
+}
+
+.popup-title {
+  font-family: var(--font-primary);
+  font-size: 2.15rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.02em;
+}
+
+.highlight-orange {
+  color: var(--color-primary-orange);
+}
+
+.popup-subtitle {
+  font-family: var(--font-secondary);
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  line-height: 1.45;
+}
+
+.popup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.popup-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.popup-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-label {
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #475569;
+  margin-bottom: 0.35rem;
+}
+
+.asterisk {
+  color: var(--color-primary-orange);
+  font-weight: 700;
+}
+
+.popup-input,
+.popup-select {
+  width: 100%;
+  padding: 0.75rem 0.95rem;
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-family: var(--font-secondary);
+  font-size: 0.925rem;
+  color: var(--color-primary-navy);
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.popup-input:focus,
+.popup-select:focus {
+  background-color: #ffffff;
+  border-color: var(--color-primary-orange);
+  box-shadow: 0 0 0 3px rgba(250, 119, 16, 0.15);
+}
+
+.popup-phone-input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.popup-phone-input-wrapper:focus-within {
+  background-color: #ffffff;
+  border-color: var(--color-primary-orange);
+  box-shadow: 0 0 0 3px rgba(250, 119, 16, 0.15);
+}
+
+.phone-prefix {
+  padding: 0.75rem 0 0.75rem 0.85rem;
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.phone-field {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding-left: 0.5rem;
+}
+
+.popup-security-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 0.85rem;
+  background-color: rgba(250, 119, 16, 0.06);
+  border: 1px solid rgba(250, 119, 16, 0.2);
+  border-radius: 8px;
+  font-family: var(--font-primary);
+  font-size: 0.8rem;
+  color: var(--color-primary-navy);
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.popup-submit-btn {
+  width: auto;
+  align-self: flex-start;
+  padding: 0.85rem 2rem;
+  background-color: var(--color-primary-orange);
+  color: #ffffff;
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 15px rgba(250, 119, 16, 0.35);
+}
+
+.popup-submit-btn:hover {
+  background-color: #e06505;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(250, 119, 16, 0.45);
+}
+
+/* Success Box */
+.popup-success-box {
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+.popup-success-icon {
+  margin-bottom: 1rem;
+}
+
+.popup-success-title {
+  font-family: var(--font-primary);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  margin-bottom: 0.5rem;
+}
+
+.popup-success-desc {
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  color: var(--color-body);
+  margin-bottom: 0.5rem;
+}
+
+.popup-success-subtext {
+  font-family: var(--font-secondary);
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .popup-modal-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .popup-title {
+    font-size: 1.75rem;
+  }
+
+  .popup-form-row {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .popup-close-btn {
+    top: 10px;
+    right: 10px;
+  }
+
+  .popup-submit-btn {
+    width: 100%;
+  }
+}

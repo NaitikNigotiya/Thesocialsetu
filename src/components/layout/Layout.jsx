@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import Nav from './Nav';
 import Footer from './Footer';
 import WhatsAppButton from './WhatsAppButton';
+import InquiryPopupModal from './InquiryPopupModal';
 
 export const Layout = () => {
   const { pathname } = useLocation();
@@ -20,6 +21,7 @@ export const Layout = () => {
       </main>
       <Footer />
       <WhatsAppButton />
+      <InquiryPopupModal />
     </div>
   );
 };
