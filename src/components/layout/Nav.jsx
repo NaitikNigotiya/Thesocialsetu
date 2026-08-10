@@ -30,13 +30,24 @@ const LinkedinIcon = ({ size = 14, color = 'var(--color-primary-orange)' }) => (
 
 export const Nav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const searchRef = useRef(null);
+  const mobileSearchRef = useRef(null);
   const navigate = useNavigate();
 
-  const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+    if (mobileSearchOpen) setMobileSearchOpen(false);
+  };
   const closeMobileMenu = () => setMobileMenuOpen(false);
+
+  const toggleMobileSearch = () => {
+    setMobileSearchOpen(!mobileSearchOpen);
+    if (mobileMenuOpen) setMobileMenuOpen(false);
+    setIsSearchOpen(true);
+  };
 
   // Filter search results from services and case studies
   const filteredServices = searchQuery.trim()
@@ -57,7 +68,10 @@ export const Nav = () => {
   // Close search dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (searchRef.current && !searchRef.current.contains(e.target)) {
+      if (
+        searchRef.current && !searchRef.current.contains(e.target) &&
+        mobileSearchRef.current && !mobileSearchRef.current.contains(e.target)
+      ) {
         setIsSearchOpen(false);
       }
     };
@@ -67,7 +81,6 @@ export const Nav = () => {
 
   const [scrolled, setScrolled] = useState(false);
 
-  // Track scroll position to dynamically hide infobar on scroll down
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -83,13 +96,14 @@ export const Nav = () => {
   const handleSelectResult = (path) => {
     setSearchQuery('');
     setIsSearchOpen(false);
+    setMobileSearchOpen(false);
     closeMobileMenu();
     navigate(path);
   };
 
   return (
     <header className={`header-wrapper ${scrolled ? 'is-scrolled' : ''}`}>
-      {/* Dynamic Top Info Bar - Smoothly Hides on Scroll Down */}
+      {/* Top Info Bar */}
       <div className={`top-infobar-wrapper ${scrolled ? 'hidden' : ''}`}>
         <div className="top-infobar-inner">
           <div className="top-infobar">
@@ -113,7 +127,6 @@ export const Nav = () => {
                 </a>
               </div>
 
-              {/* Shifted Get Free Audit CTA Button */}
               <div className="infobar-action">
                 <Button to="/inquiry" variant="primary" size="sm" icon={ArrowRight} className="infobar-btn">
                   Get Free Audit
@@ -132,9 +145,8 @@ export const Nav = () => {
             <img src={logoImg} alt="The Social Setu Logo" className="logo-img" />
           </Link>
 
-          {/* Navigation Links: Home, Company +, Services +, Packages +, Career, Blog, Contact Us */}
+          {/* Navigation Links (Desktop + Mobile Overlay) */}
           <ul className={`nav-menu ${mobileMenuOpen ? 'open' : ''}`}>
-            {/* Home */}
             <li>
               <NavLink to="/" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')} onClick={closeMobileMenu}>
                 Home
@@ -152,7 +164,7 @@ export const Nav = () => {
               </ul>
             </li>
 
-            {/* Services + Dropdown with Domain Categories Flyout Submenus */}
+            {/* Services + Dropdown */}
             <li className="nav-item-has-dropdown">
               <NavLink to="/services" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
                 Services <span className="plus-icon">+</span>
@@ -211,10 +223,10 @@ export const Nav = () => {
             </li>
           </ul>
 
-          {/* Right Actions: Interactive Search Bar & Mobile Hamburger */}
+          {/* Header Right Actions */}
           <div className="nav-actions">
-            {/* Search Bar Component */}
-            <div className="nav-search-container" ref={searchRef}>
+            {/* Desktop Search Bar */}
+            <div className="nav-search-container desktop-only-search" ref={searchRef}>
               <div className="search-input-wrapper">
                 <Search size={16} className="search-icon" />
                 <input
@@ -235,7 +247,7 @@ export const Nav = () => {
                 )}
               </div>
 
-              {/* Interactive Search Results Dropdown */}
+              {/* Desktop Search Results Dropdown */}
               {isSearchOpen && searchQuery.trim() !== '' && (
                 <div className="search-results-dropdown">
                   {filteredServices.length === 0 && filteredCaseStudies.length === 0 ? (
@@ -279,12 +291,85 @@ export const Nav = () => {
               )}
             </div>
 
-            {/* Mobile Hamburger Toggle */}
+            {/* Mobile-Only Search Icon Button */}
+            <button className="mobile-search-trigger-btn" onClick={toggleMobileSearch} aria-label="Open Search">
+              <Search size={22} />
+            </button>
+
+            {/* Mobile Hamburger Menu 3 Lines */}
             <button className="hamburger" onClick={toggleMobileMenu} aria-label="Toggle Navigation Menu">
               {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
             </button>
           </div>
         </div>
+
+        {/* Mobile Search Dropdown Bar (Toggled by Mobile Search Icon) */}
+        {mobileSearchOpen && (
+          <div className="mobile-search-bar-overlay" ref={mobileSearchRef}>
+            <div className="container mobile-search-bar-inner">
+              <div className="mobile-search-input-box">
+                <Search size={18} className="search-icon" />
+                <input
+                  type="text"
+                  className="mobile-search-input"
+                  placeholder="Search services, packages, case studies..."
+                  autoFocus
+                  value={searchQuery}
+                  onChange={(e) => {
+                    setSearchQuery(e.target.value);
+                    setIsSearchOpen(true);
+                  }}
+                />
+                <button className="mobile-search-close-btn" onClick={() => setMobileSearchOpen(false)}>
+                  <X size={20} />
+                </button>
+              </div>
+
+              {/* Mobile Search Results */}
+              {isSearchOpen && searchQuery.trim() !== '' && (
+                <div className="mobile-search-results-list">
+                  {filteredServices.length === 0 && filteredCaseStudies.length === 0 ? (
+                    <div className="search-no-results">No services found for "{searchQuery}"</div>
+                  ) : (
+                    <>
+                      {filteredServices.length > 0 && (
+                        <div className="search-section">
+                          <div className="search-section-label">Services</div>
+                          {filteredServices.map(service => (
+                            <div
+                              key={service.slug}
+                              className="search-result-item"
+                              onClick={() => handleSelectResult(`/services/${service.slug}`)}
+                            >
+                              <div className="search-result-title">{service.name}</div>
+                              <div className="search-result-desc">{service.shortDesc}</div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      {filteredCaseStudies.length > 0 && (
+                        <div className="search-section">
+                          <div className="search-section-label">Case Studies</div>
+                          {filteredCaseStudies.map(study => (
+                            <div
+                              key={study.slug}
+                              className="search-result-item"
+                              onClick={() => handleSelectResult(`/work/${study.slug}`)}
+                            >
+                              <div className="search-result-title">{study.client} ({study.industry})</div>
+                              <div className="search-result-desc">{study.summary}</div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+        )}
       </nav>
     </header>
   );
