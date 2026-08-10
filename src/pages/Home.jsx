@@ -3,92 +3,17 @@ import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
   TrendingUp, 
-  Share2, 
-  Target, 
-  Search, 
-  Globe, 
-  Video, 
-  MapPin, 
-  MessageSquare,
   ChevronLeft,
   ChevronRight,
   CheckCircle2,
   Sparkles,
-  Users,
-  Award,
-  BarChart3
+  Users
 } from 'lucide-react';
 import SEO from '../components/sections/SEO';
 import Button from '../components/ui/Button';
-import { servicesData, heroServices, categoriesList } from '../data/servicesData';
+import { heroServices } from '../data/servicesData';
 import { caseStudiesData } from '../data/caseStudiesData';
-import logoImg from '../assets/logo.png';
-import heroImg from '../assets/hero.png';
 import './Home.css';
-
-// Custom icons mapping for the 8 dark service cards
-const serviceIcons = {
-  'social-media-management': Share2,
-  'performance-ads-ppc': Target,
-  'seo-content-marketing': Search,
-  'web-design-cro': Globe,
-  'video-marketing-reels': Video,
-  'whatsapp-marketing-automation': MessageSquare,
-  'lead-generation-funnels': TrendingUp,
-  'brand-strategy-positioning': Sparkles
-};
-
-// 8 Dark Services Data
-const darkServicesList = [
-  {
-    name: 'Social Media Marketing',
-    slug: 'social-media-management',
-    desc: 'Engaging content & community growth across Meta, LinkedIn & Instagram.',
-    icon: Share2
-  },
-  {
-    name: 'Meta Ads',
-    slug: 'performance-ads-ppc',
-    desc: 'High-converting Facebook & Instagram ad campaigns focused on ROAS.',
-    icon: Target
-  },
-  {
-    name: 'Google Ads',
-    slug: 'performance-ads-ppc',
-    desc: 'Capture high-intent search traffic and convert prospects instantly.',
-    icon: Search
-  },
-  {
-    name: 'SEO & Organic Growth',
-    slug: 'seo-content-marketing',
-    desc: 'Rank #1 on Google for profitable long-tail search keywords.',
-    icon: Globe
-  },
-  {
-    name: 'Website Development',
-    slug: 'web-design-cro',
-    desc: 'Blazing fast, mobile-optimized websites built for high lead conversion.',
-    icon: Globe
-  },
-  {
-    name: 'Content Creation & Reels',
-    slug: 'video-marketing-reels',
-    desc: 'Viral short-form videos and brand assets that build trust.',
-    icon: Video
-  },
-  {
-    name: 'Google Business Profile',
-    slug: 'seo-content-marketing',
-    desc: 'Dominate local search maps and drive foot traffic to your store.',
-    icon: MapPin
-  },
-  {
-    name: 'WhatsApp Automation',
-    slug: 'whatsapp-marketing-automation',
-    desc: 'Automated broadcast funnels with 98% open rate for rapid sales.',
-    icon: MessageSquare
-  }
-];
 
 // Testimonials data
 const testimonialsList = [

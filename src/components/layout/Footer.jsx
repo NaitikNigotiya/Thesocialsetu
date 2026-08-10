@@ -53,7 +53,6 @@ export const Footer = () => {
             <ul className="footer-links">
               <li><Link to="/" className="footer-link">Home</Link></li>
               <li><Link to="/services" className="footer-link">Services</Link></li>
-              <li><Link to="/industries" className="footer-link">Industries</Link></li>
               <li><Link to="/work" className="footer-link">Case Studies</Link></li>
               <li><Link to="/pricing" className="footer-link">Pricing Plans</Link></li>
               <li><Link to="/about" className="footer-link">About Agency</Link></li>

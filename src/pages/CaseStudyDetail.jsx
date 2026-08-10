@@ -1,11 +1,9 @@
 import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, AlertCircle, Lightbulb, Quote } from 'lucide-react';
+import { AlertCircle, Lightbulb, Quote } from 'lucide-react';
 import SEO from '../components/sections/SEO';
 import Badge from '../components/ui/Badge';
-import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
-import SectionHeader from '../components/ui/SectionHeader';
 import CTABanner from '../components/sections/CTABanner';
 import { caseStudiesData } from '../data/caseStudiesData';
 import './CaseStudyDetail.css';

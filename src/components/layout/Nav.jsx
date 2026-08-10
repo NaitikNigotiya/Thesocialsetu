@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
-import { Menu, X, ArrowRight, Mail, Phone, Search, ChevronDown } from 'lucide-react';
+import { Menu, X, ArrowRight, Mail, Phone, Search } from 'lucide-react';
 import logoImg from '../../assets/logo.png';
 import Button from '../ui/Button';
 import { servicesData, categoriesList } from '../../data/servicesData';

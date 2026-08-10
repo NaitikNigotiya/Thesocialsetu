@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Target, Eye, Shield, Users, TrendingUp, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Target, Eye, Shield, Users, TrendingUp, ArrowRight } from 'lucide-react';
 import SEO from '../components/sections/SEO';
 import SectionHeader from '../components/ui/SectionHeader';
 import Card from '../components/ui/Card';
@@ -59,18 +59,6 @@ export const About = () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
   }, [isPaused]);
-
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + TEAM_MEMBERS.length) % TEAM_MEMBERS.length);
-  };
-
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % TEAM_MEMBERS.length);
-  };
-
-  const handleDotClick = (index) => {
-    setActiveIndex(index);
-  };
 
   const getCardStyle = (index) => {
     const total = TEAM_MEMBERS.length;

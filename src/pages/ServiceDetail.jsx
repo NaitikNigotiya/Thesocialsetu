@@ -1,6 +1,6 @@
 import React from 'react';
-import { useParams, Link, Navigate } from 'react-router-dom';
-import { CheckCircle2, ArrowRight, HelpCircle, ShieldCheck } from 'lucide-react';
+import { useParams, Navigate } from 'react-router-dom';
+import { CheckCircle2, ArrowRight, ShieldCheck } from 'lucide-react';
 import SEO from '../components/sections/SEO';
 import Badge from '../components/ui/Badge';
 import Button from '../components/ui/Button';

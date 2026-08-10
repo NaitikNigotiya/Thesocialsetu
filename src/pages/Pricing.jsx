@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { CheckCircle2, ArrowRight, ShieldCheck, AlertCircle, Info, Sparkles, Check, Minus } from 'lucide-react';
+import { CheckCircle2, ArrowRight, Info, Check, Minus } from 'lucide-react';
 import SEO from '../components/sections/SEO';
 import SectionHeader from '../components/ui/SectionHeader';
 import Button from '../components/ui/Button';
-import Card from '../components/ui/Card';
 import CTABanner from '../components/sections/CTABanner';
 import AccordionItem from '../components/ui/AccordionItem';
 import { startupPackages, starterPriceList, comparisonRows } from '../data/pricingData';
@@ -26,13 +25,6 @@ export const Pricing = () => {
       }
     }
   }, [location]);
-
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
 
   const categories = ['All', 'Social Media', 'Performance Ads', 'Search Engine', 'Web Development', 'Design & Content', 'Consultation & Audits'];
 

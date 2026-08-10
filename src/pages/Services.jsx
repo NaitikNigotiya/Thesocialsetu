@@ -27,21 +27,13 @@ export const Services = () => {
       </section>
 
       {/* ALL SERVICES GROUPED BY DOMAIN CATEGORIES */}
-      <div className="services-categories-container" style={{ padding: '4rem 0' }}>
+      <div className="services-categories-container">
         <div className="container">
-          {categoriesList.map((cat, catIdx) => (
-            <div 
-              key={cat.id} 
-              className="category-section" 
-              style={{ 
-                marginBottom: catIdx === categoriesList.length - 1 ? 0 : '4.5rem',
-                paddingBottom: catIdx === categoriesList.length - 1 ? 0 : '3.5rem',
-                borderBottom: catIdx === categoriesList.length - 1 ? 'none' : '1px solid rgba(25, 33, 47, 0.08)'
-              }}
-            >
-              <div className="category-header" style={{ marginBottom: '2rem' }}>
-                <span className="badge badge-orange" style={{ fontSize: '0.75rem' }}>DOMAIN CATEGORY</span>
-                <h2 style={{ fontSize: '1.85rem', fontWeight: 800, marginTop: '0.4rem', color: 'var(--color-primary-navy)' }}>
+          {categoriesList.map((cat) => (
+            <div key={cat.id} className="category-section">
+              <div className="category-header">
+                <span className="badge badge-orange">DOMAIN CATEGORY</span>
+                <h2 className="category-title">
                   {cat.title}
                 </h2>
               </div>

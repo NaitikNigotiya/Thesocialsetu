@@ -5,13 +5,9 @@ import {
   Phone, 
   Send, 
   CheckCircle2, 
-  Clock, 
   Calendar,
   MessageSquare,
-  Sparkles,
-  ArrowRight,
-  ShieldCheck,
-  Check
+  Sparkles
 } from 'lucide-react';
 import SEO from '../components/sections/SEO';
 import Button from '../components/ui/Button';

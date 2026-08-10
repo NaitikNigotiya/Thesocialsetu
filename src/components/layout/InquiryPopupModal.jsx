@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { X, Send, CheckCircle2, Sparkles, ShieldCheck, Phone, Mail } from 'lucide-react';
-import Button from '../ui/Button';
+import { X, CheckCircle2, ShieldCheck } from 'lucide-react';
 import './InquiryPopupModal.css';
 
 const SERVICES_OPTIONS = [

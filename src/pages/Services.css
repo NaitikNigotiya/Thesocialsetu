@@ -5,3 +5,30 @@
   padding: 4.5rem 0;
   text-align: center;
 }
+
+.services-categories-container {
+  padding: 4rem 0;
+}
+
+.category-section {
+  margin-bottom: 4.5rem;
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid rgba(25, 33, 47, 0.08);
+}
+
+.category-section:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.category-header {
+  margin-bottom: 2rem;
+}
+
+.category-title {
+  font-size: 1.85rem;
+  font-weight: 800;
+  margin-top: 0.4rem;
+  color: var(--color-primary-navy);
+}
