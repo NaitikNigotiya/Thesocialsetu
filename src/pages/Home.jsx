@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
@@ -12,38 +12,7 @@ import Button from '../components/ui/Button';
 import { heroServices } from '../data/servicesData';
 import './Home.css';
 
-// Testimonials data
-const testimonialsList = [
-  {
-    id: 1,
-    quote: "The Social Setu transformed our digital lead acquisition. Within 60 days, our cost per qualified lead dropped by 42% while monthly admissions increased 3.5x.",
-    author: "Dr. Rajesh Sharma",
-    role: "Founder & Director",
-    company: "Apex Academy",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
-  },
-  {
-    id: 2,
-    quote: "Working with Raghav and the team gave us complete clarity on our Meta ad spend. Our ROAS went from 1.8x to 4.2x in less than 3 months.",
-    author: "Ananya Roy",
-    role: "Marketing Lead",
-    company: "Aura Skincare",
-    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
-  },
-  {
-    id: 3,
-    quote: "Their team built our website and WhatsApp funnel from scratch. We get consistent daily inquiries without wasting money on random agency promises.",
-    author: "Vikramaditya Verma",
-    role: "Managing Director",
-    company: "Urban Spaces",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
-  }
-];
-
 export const Home = () => {
-  // State for Testimonials slider
-  const [activeTestimonialIdx, setActiveTestimonialIdx] = useState(0);
-
   return (
     <>
       <SEO
@@ -332,53 +301,6 @@ export const Home = () => {
             <Button to="/services" variant="outline" icon={ArrowRight}>
               View All Marketing Services
             </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 6: TESTIMONIALS SECTION
-         ========================================================================= */}
-      <section className="section testimonials-section">
-        <div className="container">
-          <div className="testimonials-header">
-            <div className="badge badge-navy" style={{ marginBottom: '1rem' }}>
-              Testimonials
-            </div>
-            <h2 className="section-title">
-              Here's what businesses say about us.
-            </h2>
-          </div>
-
-          {/* Featured Testimonial Card */}
-          <div className="card testimonial-featured-card">
-            <div className="testimonial-avatar-wrapper">
-              <img 
-                src={testimonialsList[activeTestimonialIdx].avatar} 
-                alt={testimonialsList[activeTestimonialIdx].author} 
-                className="testimonial-avatar-img"
-              />
-            </div>
-
-            <blockquote className="testimonial-quote">
-              "{testimonialsList[activeTestimonialIdx].quote}"
-            </blockquote>
-
-            <div className="testimonial-meta">
-              <h4 className="testimonial-author">{testimonialsList[activeTestimonialIdx].author}</h4>
-              <p className="testimonial-role">{testimonialsList[activeTestimonialIdx].role}, <strong style={{ color: 'var(--color-primary-navy)' }}>{testimonialsList[activeTestimonialIdx].company}</strong></p>
-            </div>
-          </div>
-
-          {/* Pagination Dots for Testimonials */}
-          <div className="pagination-dots" style={{ justifyContent: 'center', marginTop: '2rem' }}>
-            {testimonialsList.map((_, idx) => (
-              <span
-                key={idx}
-                className={`dot ${idx === activeTestimonialIdx ? 'active' : ''}`}
-                onClick={() => setActiveTestimonialIdx(idx)}
-              />
-            ))}
           </div>
         </div>
       </section>
