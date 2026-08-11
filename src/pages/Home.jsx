@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
   TrendingUp, 
-  ChevronLeft,
-  ChevronRight,
   CheckCircle2,
   Sparkles,
   Users
@@ -12,7 +10,6 @@ import {
 import SEO from '../components/sections/SEO';
 import Button from '../components/ui/Button';
 import { heroServices } from '../data/servicesData';
-import { caseStudiesData } from '../data/caseStudiesData';
 import './Home.css';
 
 // Testimonials data
@@ -27,16 +24,16 @@ const testimonialsList = [
   },
   {
     id: 2,
-    quote: "Their performance Meta ads and WhatsApp automation increased our online order revenue by 240% in just 3 months. Outstanding ROI and real-time support!",
-    author: "Ananya Verma",
-    role: "Co-Founder",
-    company: "Luxe Couture",
-    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80"
+    quote: "Working with Raghav and the team gave us complete clarity on our Meta ad spend. Our ROAS went from 1.8x to 4.2x in less than 3 months.",
+    author: "Ananya Roy",
+    role: "Marketing Lead",
+    company: "Aura Skincare",
+    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
   },
   {
     id: 3,
-    quote: "Working with Naitik and his team was seamless. They redesigned our website and built a lead funnel that generated over ₹1.2 Cr in real estate property bookings.",
-    author: "Vikramaditya Singh",
+    quote: "Their team built our website and WhatsApp funnel from scratch. We get consistent daily inquiries without wasting money on random agency promises.",
+    author: "Vikramaditya Verma",
     role: "Managing Director",
     company: "Urban Spaces",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
@@ -44,18 +41,8 @@ const testimonialsList = [
 ];
 
 export const Home = () => {
-  // State for Portfolio carousel
-  const [activePortfolioIdx, setActivePortfolioIdx] = useState(0);
   // State for Testimonials slider
   const [activeTestimonialIdx, setActiveTestimonialIdx] = useState(0);
-
-  const nextPortfolio = () => {
-    setActivePortfolioIdx((prev) => (prev + 1) % caseStudiesData.length);
-  };
-
-  const prevPortfolio = () => {
-    setActivePortfolioIdx((prev) => (prev - 1 + caseStudiesData.length) % caseStudiesData.length);
-  };
 
   return (
     <>
@@ -350,87 +337,7 @@ export const Home = () => {
       </section>
 
       {/* =========================================================================
-          SECTION 6: PORTFOLIO TEASER (Case Studies Carousel / Cards)
-         ========================================================================= */}
-      <section className="section portfolio-section">
-        <div className="container">
-          <div className="portfolio-header">
-            <div>
-              <div className="badge badge-orange" style={{ marginBottom: '1rem' }}>
-                Portfolio
-              </div>
-              <h2 className="section-title">
-                Explore our most successful projects.
-              </h2>
-            </div>
-            
-            <div className="portfolio-nav-buttons">
-              <button className="carousel-btn" onClick={prevPortfolio} aria-label="Previous Project">
-                <ChevronLeft size={20} />
-              </button>
-              <button className="carousel-btn" onClick={nextPortfolio} aria-label="Next Project">
-                <ChevronRight size={20} />
-              </button>
-            </div>
-          </div>
-
-          <div className="portfolio-grid">
-            {caseStudiesData.slice(0, 3).map((study, idx) => (
-              <div key={study.slug} className={`card portfolio-card ${idx === activePortfolioIdx ? 'active-slide' : ''}`}>
-                <div className="portfolio-card-img-wrapper">
-                  <img 
-                    src={study.heroImage || "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80"} 
-                    alt={study.client} 
-                    className="portfolio-card-img" 
-                  />
-                  <div className="badge badge-navy portfolio-industry-badge">
-                    {study.industry}
-                  </div>
-                </div>
-
-                <div className="portfolio-card-body">
-                  <h3 className="portfolio-client">{study.client}</h3>
-                  <p className="portfolio-title">{study.summary}</p>
-                  
-                  <div className="portfolio-metrics">
-                    {(study.results || []).slice(0, 2).map((m, mIdx) => (
-                      <div key={mIdx} className="metric-pill">
-                        <strong className="metric-value">{m.metric}</strong>
-                        <span className="metric-label">{m.label}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <Link to={`/work/${study.slug}`} className="portfolio-link-btn">
-                    <span>Read Case Study</span>
-                    <ArrowRight size={14} />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Pagination Dots & View All Link */}
-          <div className="portfolio-bottom-bar">
-            <div className="pagination-dots">
-              {caseStudiesData.slice(0, 3).map((_, idx) => (
-                <span
-                  key={idx}
-                  className={`dot ${idx === activePortfolioIdx ? 'active' : ''}`}
-                  onClick={() => setActivePortfolioIdx(idx)}
-                />
-              ))}
-            </div>
-
-            <Button to="/work" variant="secondary" icon={ArrowRight}>
-              View All Work
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 7: TESTIMONIALS SECTION
+          SECTION 6: TESTIMONIALS SECTION
          ========================================================================= */}
       <section className="section testimonials-section">
         <div className="container">
