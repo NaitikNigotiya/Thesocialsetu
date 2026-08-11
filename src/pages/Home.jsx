@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
   TrendingUp, 
   CheckCircle2,
   Sparkles,
-  Users
+  Users,
+  Send
 } from 'lucide-react';
 import SEO from '../components/sections/SEO';
 import Button from '../components/ui/Button';
@@ -13,6 +14,30 @@ import { heroServices } from '../data/servicesData';
 import './Home.css';
 
 export const Home = () => {
+  const [inquiryData, setInquiryData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: 'Meta Ads',
+    budget: '₹10,000 - ₹20,000 / month'
+  });
+  const [inquirySubmitted, setInquirySubmitted] = useState(false);
+  const [inquirySubmitting, setInquirySubmitting] = useState(false);
+
+  const handleInquiryChange = (e) => {
+    const { name, value } = e.target;
+    setInquiryData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleInquirySubmit = (e) => {
+    e.preventDefault();
+    setInquirySubmitting(true);
+    setTimeout(() => {
+      setInquirySubmitting(false);
+      setInquirySubmitted(true);
+    }, 600);
+  };
+
   return (
     <>
       <SEO
@@ -157,7 +182,7 @@ export const Home = () => {
                   <div className="content">
                     <img 
                       src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" 
-                      alt="Brand Growth" 
+                      alt="Growth Team Consultation" 
                       className="card-bg-img"
                     />
                   </div>
@@ -171,29 +196,23 @@ export const Home = () => {
             </div>
           </div>
 
-          {/* Full-width Dark Banner split in two below */}
+          {/* Full-width Split Banner Section */}
           <div className="card-dark about-banner-dark">
-            <div className="about-banner-left">
-              <div className="stat-big">5x</div>
-              <div className="stat-label">Average Lead Growth Achieved for Client Campaigns</div>
+            <div className="banner-stat-block">
+              <div className="stat-big">₹2.5 Cr+</div>
+              <p className="stat-label">Client Ad Revenue Generated in 2025-2026</p>
             </div>
-            
-            <div className="about-banner-right">
-              <div className="banner-visual-wrapper">
-                <img 
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" 
-                  alt="Marketing Performance Analytics" 
-                  className="banner-bg-img"
-                />
-                {/* Floating Pill Tags */}
-                <div className="floating-tags-container">
-                  <span className="badge badge-orange">Social Media</span>
-                  <span className="badge badge-orange">Meta Ads</span>
-                  <span className="badge badge-orange">SEO</span>
-                  <span className="badge badge-orange">Website</span>
-                  <span className="badge badge-orange">Google Ads</span>
-                  <span className="badge badge-orange">Content</span>
-                </div>
+            <div className="banner-visual-wrapper">
+              <img 
+                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" 
+                alt="Social Media Growth Strategy" 
+                className="banner-bg-img"
+              />
+              <div className="floating-tags-container">
+                <span className="badge badge-dark">Performance Ads</span>
+                <span className="badge badge-dark">SEO & Local Map Ranking</span>
+                <span className="badge badge-dark">High-ROAS Meta Funnels</span>
+                <span className="badge badge-dark">Web Design & CRO</span>
               </div>
             </div>
           </div>
@@ -207,53 +226,47 @@ export const Home = () => {
         <div className="container">
           <div className="process-header">
             <div className="badge badge-orange" style={{ marginBottom: '1rem' }}>
-              How we work
+              HOW WE WORK
             </div>
             <h2 className="section-title">
-              Let us show you how we grow your brand online.
+              Our 4-Step Growth Blueprint
             </h2>
           </div>
 
           <div className="sticky-notes-grid">
-            {/* Note 01 */}
             <div className="card sticky-note-card note-1">
               <div className="note-step-number">01</div>
-              <h3 className="note-title">Discovery & Audit</h3>
-              <p className="note-desc">
-                We analyze your business goals, target audience persona, and current digital channels to identify high-ROI opportunities.
-              </p>
+              <div>
+                <h3 className="note-title">Audit & Strategy</h3>
+                <p className="note-desc">Deep-dive analysis of your current funnel, audience data, and market competitors.</p>
+              </div>
             </div>
 
-            {/* Note 02 */}
             <div className="card sticky-note-card note-2">
               <div className="note-step-number">02</div>
-              <h3 className="note-title">Custom Strategy</h3>
-              <p className="note-desc">
-                Designing tailored marketing funnels, creative campaign positioning, and ad spend allocation engineered for quick wins.
-              </p>
+              <div>
+                <h3 className="note-title">Funnel Setup</h3>
+                <p className="note-desc">Building high-converting ad creatives, landing pages, and automated response flows.</p>
+              </div>
             </div>
 
-            {/* Note 03 */}
             <div className="card sticky-note-card note-3">
               <div className="note-step-number">03</div>
-              <h3 className="note-title">Create & Launch</h3>
-              <p className="note-desc">
-                Building high-converting ad copy, landing pages, social content, and automated WhatsApp nurturing funnels.
-              </p>
+              <div>
+                <h3 className="note-title">Campaign Launch</h3>
+                <p className="note-desc">Executing targeted Meta and Google PPC campaigns with real-time conversion tracking.</p>
+              </div>
             </div>
 
-            {/* Note 04 */}
             <div className="card sticky-note-card note-4">
               <div className="note-step-number">04</div>
-              <h3 className="note-title">Optimize & Scale</h3>
-              <p className="note-desc">
-                Continuous A/B testing, data analysis, and scaling winning channels to maximize your return on marketing investment.
-              </p>
-            </div>
-
-            {/* Handwritten Note */}
-            <div className="handwritten-note">
-              Ready to grow! 🚀
+              <div>
+                <h3 className="note-title">Scale & Optimize</h3>
+                <p className="note-desc">Continuous A/B testing, ROAS scaling, and weekly transparent performance reporting.</p>
+              </div>
+              <div className="handwritten-note">
+                Ready to grow! 🚀
+              </div>
             </div>
           </div>
         </div>
@@ -301,6 +314,158 @@ export const Home = () => {
             <Button to="/services" variant="outline" icon={ArrowRight}>
               View All Marketing Services
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECTION 6: QUICK INQUIRY FORM & VALUE PROPOSITION
+         ========================================================================= */}
+      <section className="section home-inquiry-section">
+        <div className="container">
+          <div className="home-inquiry-grid">
+            {/* Left Column: Form Card */}
+            <div className="card home-inquiry-card">
+              {!inquirySubmitted ? (
+                <form onSubmit={handleInquirySubmit} className="home-inquiry-form">
+                  <h3 className="inquiry-form-title">Send Us a Message</h3>
+                  
+                  <div className="inquiry-field-group">
+                    <label>Your Name *</label>
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      placeholder="Your Name"
+                      value={inquiryData.name}
+                      onChange={handleInquiryChange}
+                      className="inquiry-input"
+                    />
+                  </div>
+
+                  <div className="inquiry-fields-row">
+                    <div className="inquiry-field-group">
+                      <label>Email Address *</label>
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        placeholder="Your Email"
+                        value={inquiryData.email}
+                        onChange={handleInquiryChange}
+                        className="inquiry-input"
+                      />
+                    </div>
+
+                    <div className="inquiry-field-group">
+                      <label>Phone Number *</label>
+                      <div className="phone-input-wrapper">
+                        <span className="phone-prefix">🇮🇳 +91</span>
+                        <input
+                          type="tel"
+                          name="phone"
+                          required
+                          placeholder="Your Number"
+                          value={inquiryData.phone}
+                          onChange={handleInquiryChange}
+                          className="inquiry-input phone-input"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="inquiry-fields-row">
+                    <div className="inquiry-field-group">
+                      <label>Select Services *</label>
+                      <select
+                        name="service"
+                        value={inquiryData.service}
+                        onChange={handleInquiryChange}
+                        className="inquiry-select"
+                      >
+                        <option value="Meta Ads">Meta Ads</option>
+                        <option value="Google Ads">Google Ads</option>
+                        <option value="SEO & Organic Growth">SEO & Organic Growth</option>
+                        <option value="Social Media Management">Social Media Management</option>
+                        <option value="Website Development">Website Development</option>
+                        <option value="WhatsApp Automation">WhatsApp Automation</option>
+                        <option value="Full Digital Package">Full Digital Package</option>
+                      </select>
+                    </div>
+
+                    <div className="inquiry-field-group">
+                      <label>Your Budget *</label>
+                      <select
+                        name="budget"
+                        value={inquiryData.budget}
+                        onChange={handleInquiryChange}
+                        className="inquiry-select"
+                      >
+                        <option value="Under ₹10,000 / month">Under ₹10,000 / month</option>
+                        <option value="₹10,000 - ₹20,000 / month">₹10,000 - ₹20,000 / month</option>
+                        <option value="₹20,000 - ₹50,000 / month">₹20,000 - ₹50,000 / month</option>
+                        <option value="₹50,000+ / month">₹50,000+ / month</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <Button type="submit" variant="primary" icon={Send} disabled={inquirySubmitting} className="inquiry-submit-btn">
+                    {inquirySubmitting ? 'Sending Message...' : 'SEND MESSAGE'}
+                  </Button>
+                </form>
+              ) : (
+                <div className="inquiry-success-box">
+                  <div className="success-icon-badge">
+                    <CheckCircle2 size={32} />
+                  </div>
+                  <h3>Thank You, {inquiryData.name}!</h3>
+                  <p style={{ color: 'var(--color-muted)', margin: '0.5rem 0 1.25rem 0', fontSize: '0.95rem' }}>
+                    Your inquiry for <strong>{inquiryData.service}</strong> has been received. Our team will connect with you shortly.
+                  </p>
+                  <a
+                    href={`https://wa.me/916267137892?text=${encodeURIComponent(`Hi The Social Setu,\n\nI just submitted an inquiry on your website.\n- Name: ${inquiryData.name}\n- Service: ${inquiryData.service}\n- Budget: ${inquiryData.budget}\n- Phone: ${inquiryData.phone}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary"
+                    style={{ width: '100%', justifyContent: 'center' }}
+                  >
+                    Instant Chat on WhatsApp
+                  </a>
+                </div>
+              )}
+            </div>
+
+            {/* Right Column: Value Proposition */}
+            <div className="home-inquiry-content">
+              <div className="accent-bar-indicator"></div>
+              <h2 className="inquiry-headline">
+                Be on the Top & Get More Traffic to Your Website
+              </h2>
+              <p className="inquiry-subtitle">
+                We deploy battle-tested digital marketing strategies built to capture high-intent customers and scale your brand revenue:
+              </p>
+
+              <ul className="inquiry-value-list">
+                <li className="inquiry-value-item">
+                  <div className="check-icon-circle">
+                    <CheckCircle2 size={18} />
+                  </div>
+                  <span>High-ROAS ad campaigns across Meta & Google search engineered to convert leads instantly.</span>
+                </li>
+                <li className="inquiry-value-item">
+                  <div className="check-icon-circle">
+                    <CheckCircle2 size={18} />
+                  </div>
+                  <span>Search engine optimization (SEO) designed to rank your business on Page 1 for profitable keywords.</span>
+                </li>
+                <li className="inquiry-value-item">
+                  <div className="check-icon-circle">
+                    <CheckCircle2 size={18} />
+                  </div>
+                  <span>Blazing fast, mobile-optimized landing pages and automated WhatsApp funnels with 98% open rate.</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
