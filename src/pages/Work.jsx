@@ -2,15 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronLeft, ChevronRight, X, Grid, List as ListIcon } from 'lucide-react';
 import SEO from '../components/sections/SEO';
+import SectionHeader from '../components/ui/SectionHeader';
 import { caseStudiesData, workGalleryItems } from '../data/caseStudiesData';
 import './Work.css';
 
 export const Work = () => {
   const [viewMode, setViewMode] = useState('list'); // Default to list view for case studies/blog articles
+  const [selectedTopic, setSelectedTopic] = useState('All Articles');
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
   const isLightboxOpen = lightboxIndex !== null;
   const currentItem = isLightboxOpen ? workGalleryItems[lightboxIndex] : null;
+
+  const topics = ['All Articles', 'B2B SaaS', 'E-commerce & D2C', 'EdTech & CRO', 'Multi-Channel Ads'];
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -47,6 +51,10 @@ export const Work = () => {
     setLightboxIndex((prev) => (prev === 0 ? workGalleryItems.length - 1 : prev - 1));
   };
 
+  const filteredCaseStudies = selectedTopic === 'All Articles'
+    ? caseStudiesData
+    : caseStudiesData.filter(cs => cs.industry.toLowerCase().includes(selectedTopic.toLowerCase().split(' ')[0]));
+
   return (
     <>
       <SEO
@@ -54,16 +62,39 @@ export const Work = () => {
         description="Explore curated industry case studies on B2B SaaS lead growth, E-commerce SEO, Programmatic Ads ROAS, Landing Page CRO, and Multi-Channel marketing."
       />
 
+      {/* Hero Header with Blue Navy Background */}
+      <section className="blog-hero">
+        <div className="container">
+          <SectionHeader
+            badgeText="BLOG & CASE STUDIES"
+            title="Growth Marketing Insights & Blueprints"
+            subtitle="Curated industry case studies and tactical breakdowns revealing growth strategies across B2B SaaS, E-commerce, EdTech, and Multi-Channel marketing."
+            dark={true}
+          />
+
+          {/* Topic Filter Pills inside Hero */}
+          <div className="blog-topics-strip">
+            {topics.map((topic) => (
+              <button
+                key={topic}
+                className={`topic-pill ${selectedTopic === topic ? 'active' : ''}`}
+                onClick={() => setSelectedTopic(topic)}
+              >
+                {topic}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Main Content Area */}
       <div className="work-minimal-page">
         <div className="work-container">
-          {/* Header */}
-          <div className="work-header-minimal" style={{ alignItems: 'flex-start' }}>
-            <div>
-              <h1 className="work-heading">Blog & Case Studies</h1>
-              <p style={{ color: 'var(--color-muted)', fontSize: '1rem', marginTop: '0.5rem', maxWidth: '640px' }}>
-                Curated industry case studies and growth breakdowns revealing tactical blueprints across B2B SaaS, E-commerce, EdTech, and Multi-Channel marketing.
-              </p>
-            </div>
+          {/* Controls Bar: Results Count + View Toggle */}
+          <div className="work-controls-bar">
+            <span className="blog-count-text">
+              Showing <strong>{filteredCaseStudies.length}</strong> Industry Case Studies
+            </span>
 
             <div className="view-toggle-container">
               <button
@@ -88,7 +119,7 @@ export const Work = () => {
           {/* LIST VIEW (Blog / Case Study Style) */}
           {viewMode === 'list' && (
             <div className="list-view-layout">
-              {caseStudiesData.map((study) => (
+              {filteredCaseStudies.map((study) => (
                 <div key={study.slug} className="list-item-row">
                   <div className="list-item-image-col">
                     <Link to={`/work/${study.slug}`}>

@@ -1,10 +1,51 @@
-/* Minimal Photography-Portfolio Style Work / Gallery CSS */
+/* Blog Hero Upper Section with Navy Blue Background */
+.blog-hero {
+  background-color: var(--color-primary-navy);
+  color: var(--color-white);
+  padding: 4.5rem 0 3.5rem 0;
+  position: relative;
+  text-align: center;
+}
+
+.blog-hero .section-header {
+  margin-bottom: 1.5rem !important;
+}
+
+.blog-topics-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.topic-pill {
+  padding: 0.45rem 1.15rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.topic-pill:hover,
+.topic-pill.active {
+  background: var(--color-primary-orange);
+  border-color: var(--color-primary-orange);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(250, 119, 16, 0.3);
+}
 
 .work-minimal-page {
   background-color: #ffffff;
   color: var(--color-primary-navy);
-  padding: 4.5rem 0 5rem 0;
-  min-height: 80vh;
+  padding: 3rem 0 5rem 0;
+  min-height: 70vh;
 }
 
 .work-container {
@@ -14,14 +55,20 @@
   padding: 0 1.5rem;
 }
 
-/* Minimal Header: Heading + View Toggle */
-.work-header-minimal {
+.work-controls-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  margin-bottom: 2.5rem;
   border-bottom: 1px solid rgba(25, 33, 47, 0.08);
+}
+
+.blog-count-text {
+  font-family: var(--font-secondary);
+  font-size: 0.95rem;
+  color: var(--color-muted);
 }
 
 .work-heading {
