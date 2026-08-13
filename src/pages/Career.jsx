@@ -11,7 +11,9 @@ import {
   Cpu, 
   Award,
   Send,
-  PhoneCall
+  Mail,
+  PhoneCall,
+  Sparkles
 } from 'lucide-react';
 import SEO from '../components/sections/SEO';
 import SectionHeader from '../components/ui/SectionHeader';
@@ -21,7 +23,7 @@ import { careerOpenings, agencyPerks } from '../data/careersData';
 import './Career.css';
 
 const AGENCY_HR_PHONE = '6267137892';
-const AGENCY_HR_EMAIL = import.meta.env.VITE_AGENCY_EMAIL || 'hello.thesocialsetu@gmail.com';
+const AGENCY_HR_EMAIL = 'hello.thesocialsetu@gmail.com';
 
 const iconMap = {
   Zap,
@@ -39,20 +41,20 @@ export const Career = () => {
 
   const [formData, setFormData] = useState({
     fullName: '',
-    email: '',
     phone: '',
-    experience: 'Fresher / Portfolio',
     portfolioUrl: '',
-    coverNote: ''
+    message: ''
   });
 
   const handleOpenModal = (job) => {
     setSelectedJob(job);
     setIsSubmitted(false);
-    setFormData(prev => ({
-      ...prev,
-      experience: job.type === 'Internship' ? 'Fresher / Portfolio' : '1 - 3 Years'
-    }));
+    setFormData({
+      fullName: '',
+      phone: '',
+      portfolioUrl: '',
+      message: ''
+    });
   };
 
   const handleCloseModal = () => {
@@ -85,26 +87,32 @@ export const Career = () => {
     return matchesType && matchesQuery;
   });
 
+  const generateMailtoLink = (job) => {
+    const subject = `Job Application: ${job ? job.title : 'Agency Role'} - The Social Setu`;
+    const body = `Hi The Social Setu Team,\n\nI want to apply for the position of ${job ? job.title : 'this role'}.\n\nName: ${formData.fullName}\nPhone: ${formData.phone}\nPortfolio/Resume Link: ${formData.portfolioUrl}\n\nMessage/Note: ${formData.message}\n\nThank you!`;
+    return `mailto:${AGENCY_HR_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
   const generateWhatsAppLink = () => {
     if (!selectedJob) return '#';
-    const text = `Hi The Social Setu HR Team,\n\nI want to apply for the position: *${selectedJob.title}* (${selectedJob.type}).\n\n*Candidate Details:*\n- Name: ${formData.fullName}\n- Email: ${formData.email}\n- Phone: ${formData.phone}\n- Experience: ${formData.experience}\n- Portfolio / Resume: ${formData.portfolioUrl || 'Attached'}\n\n*Note:* ${formData.coverNote || 'Looking forward to interviewing with the team.'}`;
+    const text = `Hi The Social Setu Team,\n\nI want to apply for the position: *${selectedJob.title}* (${selectedJob.type}).\n\n*Candidate Details:*\n- Name: ${formData.fullName}\n- Phone: ${formData.phone}\n- Portfolio / Resume: ${formData.portfolioUrl || 'N/A'}\n- Message: ${formData.message || 'Excited to join the team.'}`;
     return `https://wa.me/91${AGENCY_HR_PHONE}?text=${encodeURIComponent(text)}`;
   };
 
   return (
     <>
       <SEO
-        title="Careers & Internships | Join The Social Setu Growth Team"
-        description="Explore open full-time positions and agency internships at The Social Setu in Indore & Remote. Apply for Performance Marketing, Social Media, Video Editing, and Web Dev roles."
+        title="Careers — We're Hiring | Join The Social Setu Team"
+        description="We're hiring! Explore job & internship openings at The Social Setu: Video Model & Content Creator (Female) Internship and Lead Generation Executive (WFH)."
       />
 
       {/* Hero Header */}
       <section className="career-hero">
         <div className="container">
           <SectionHeader
-            badgeText="CAREERS & INTERNSHIPS"
-            title="Build Your Growth Career With The Social Setu"
-            subtitle="Join a high-energy agency team shaping digital marketing for India's fastest-growing brands. Internship & full-time positions available."
+            badgeText="CAREERS — WE'RE HIRING"
+            title="Join The Growth Team At The Social Setu"
+            subtitle="We are looking for passionate, driven talent to help scale brands. Explore active full-time and internship openings below."
             dark={true}
           />
 
@@ -126,7 +134,7 @@ export const Career = () => {
       <section className="career-filter-section">
         <div className="container filter-bar-inner">
           <div className="filter-tabs">
-            {['All', 'Full-Time', 'Internship'].map((type) => (
+            {['All', 'Internship', 'Work From Home'].map((type) => (
               <button
                 key={type}
                 className={`filter-tab-btn ${filterType === type ? 'active' : ''}`}
@@ -142,7 +150,7 @@ export const Career = () => {
             <input
               type="text"
               className="career-search-input"
-              placeholder="Search roles (e.g. Meta Ads, Video Editor)..."
+              placeholder="Search roles (e.g. Video Model, Lead Gen)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -190,12 +198,22 @@ export const Career = () => {
 
                     <p className="job-desc">{job.shortDesc}</p>
 
-                    <div className="job-responsibilities-title">Key Responsibilities & Scope:</div>
+                    <div className="job-responsibilities-title">Responsibilities:</div>
                     <ul className="job-responsibilities-list">
-                      {job.responsibilities.slice(0, 3).map((resp, rIdx) => (
+                      {job.responsibilities.map((resp, rIdx) => (
                         <li key={rIdx} className="job-responsibility-item">
                           <CheckCircle2 size={14} />
                           <span>{resp}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="job-responsibilities-title" style={{ marginTop: '1rem' }}>Requirements:</div>
+                    <ul className="job-responsibilities-list">
+                      {job.requirements.map((req, qIdx) => (
+                        <li key={qIdx} className="job-responsibility-item">
+                          <Sparkles size={14} color="var(--color-primary-orange)" />
+                          <span>{req}</span>
                         </li>
                       ))}
                     </ul>
@@ -207,15 +225,27 @@ export const Career = () => {
                       <span style={{ color: 'var(--color-primary-orange)' }}>{job.salary}</span>
                     </div>
 
-                    <Button
-                      onClick={() => handleOpenModal(job)}
-                      variant="primary"
-                      size="sm"
-                      icon={ArrowRight}
-                      style={{ width: '100%', justifyContent: 'center' }}
-                    >
-                      Apply For Position
-                    </Button>
+                    <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                      <Button
+                        onClick={() => handleOpenModal(job)}
+                        variant="primary"
+                        size="sm"
+                        icon={ArrowRight}
+                        style={{ flex: 1, justifyContent: 'center' }}
+                      >
+                        Apply Now
+                      </Button>
+                      
+                      <a
+                        href={generateMailtoLink(job)}
+                        className="btn btn-outline"
+                        style={{ padding: '0.55rem 1rem', fontSize: '0.875rem', gap: '0.4rem' }}
+                        title="Email HR directly"
+                      >
+                        <Mail size={16} />
+                        <span>Email Us</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -240,107 +270,86 @@ export const Career = () => {
 
             {!isSubmitted ? (
               <form onSubmit={handleSubmit} className="job-modal-body">
-                <div className="form-group-grid">
-                  <div className="form-field">
-                    <label>Full Name *</label>
-                    <input
-                      type="text"
-                      name="fullName"
-                      required
-                      placeholder="e.g. Rahul Sharma"
-                      className="form-input"
-                      value={formData.fullName}
-                      onChange={handleInputChange}
-                    />
-                  </div>
-
-                  <div className="form-field">
-                    <label>WhatsApp Number *</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      required
-                      placeholder="+91 98765 43210"
-                      className="form-input"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                    />
-                  </div>
-                </div>
-
                 <div className="form-field">
-                  <label>Email Address *</label>
+                  <label>Full Name *</label>
                   <input
-                    type="email"
-                    name="email"
+                    type="text"
+                    name="fullName"
                     required
-                    placeholder="name@gmail.com"
+                    placeholder="Your Full Name"
                     className="form-input"
-                    value={formData.email}
+                    value={formData.fullName}
                     onChange={handleInputChange}
                   />
                 </div>
 
-                <div className="form-group-grid">
-                  <div className="form-field">
-                    <label>Experience Level *</label>
-                    <select
-                      name="experience"
-                      className="form-select"
-                      value={formData.experience}
-                      onChange={handleInputChange}
-                    >
-                      <option value="Fresher / Student">Fresher / Student</option>
-                      <option value="0 - 1 Years">0 - 1 Years</option>
-                      <option value="1 - 3 Years">1 - 3 Years</option>
-                      <option value="3+ Years">3+ Years</option>
-                    </select>
-                  </div>
-
-                  <div className="form-field">
-                    <label>Resume / Portfolio Link *</label>
-                    <input
-                      type="url"
-                      name="portfolioUrl"
-                      required
-                      placeholder="Drive / LinkedIn / Behance URL"
-                      className="form-input"
-                      value={formData.portfolioUrl}
-                      onChange={handleInputChange}
-                    />
-                  </div>
+                <div className="form-field">
+                  <label>Phone / WhatsApp Number *</label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    required
+                    placeholder="+91 98765 43210"
+                    className="form-input"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                  />
                 </div>
 
                 <div className="form-field">
-                  <label>Why are you a good fit for this role?</label>
+                  <label>Portfolio / Resume Link *</label>
+                  <input
+                    type="url"
+                    name="portfolioUrl"
+                    required
+                    placeholder="Google Drive / Instagram / LinkedIn / Resume Link"
+                    className="form-input"
+                    value={formData.portfolioUrl}
+                    onChange={handleInputChange}
+                  />
+                </div>
+
+                <div className="form-field">
+                  <label>Message / Short Intro</label>
                   <textarea
-                    name="coverNote"
-                    placeholder="Briefly tell us about your skills, past projects, or career aspirations..."
+                    name="message"
+                    placeholder="Tell us about yourself or relevant experience..."
                     className="form-textarea"
-                    value={formData.coverNote}
+                    value={formData.message}
                     onChange={handleInputChange}
                   ></textarea>
                 </div>
 
-                <Button
-                  type="submit"
-                  variant="primary"
-                  size="md"
-                  icon={Send}
-                  style={{ width: '100%', justifyContent: 'center' }}
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? 'Processing Application...' : 'Submit Application'}
-                </Button>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    size="md"
+                    icon={Send}
+                    style={{ width: '100%', justifyContent: 'center' }}
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Submitting Application...' : 'Submit Application'}
+                  </Button>
+
+                  <a
+                    href={generateMailtoLink(selectedJob)}
+                    className="btn btn-outline"
+                    style={{ width: '100%', justifyContent: 'center', gap: '0.5rem' }}
+                  >
+                    <Mail size={16} />
+                    <span>Apply via Email (hello.thesocialsetu@gmail.com)</span>
+                  </a>
+                </div>
               </form>
             ) : (
               <div className="modal-success-box">
                 <div className="success-icon-circle">
                   <CheckCircle2 size={36} />
                 </div>
-                <h3 className="success-title">Application Logged!</h3>
+                <h3 className="success-title">Application Submitted!</h3>
                 <p className="success-desc">
-                  Thank you, <strong>{formData.fullName}</strong>. Your application details for <strong>{selectedJob.title}</strong> have been recorded.
+                  Thank you, <strong>{formData.fullName}</strong>. Your application for <strong>{selectedJob.title}</strong> has been logged.
                 </p>
 
                 <div className="modal-actions-row">
@@ -352,11 +361,16 @@ export const Career = () => {
                     style={{ gap: '0.5rem' }}
                   >
                     <PhoneCall size={16} />
-                    <span>Instant HR Dispatch via WhatsApp</span>
+                    <span>Dispatch via WhatsApp</span>
                   </a>
-                  <button className="btn btn-outline" onClick={handleCloseModal}>
-                    Close Window
-                  </button>
+                  <a
+                    href={generateMailtoLink(selectedJob)}
+                    className="btn btn-outline"
+                    style={{ gap: '0.5rem' }}
+                  >
+                    <Mail size={16} />
+                    <span>Send via Email</span>
+                  </a>
                 </div>
               </div>
             )}
@@ -366,10 +380,10 @@ export const Career = () => {
 
       {/* CTA Banner */}
       <CTABanner
-        title="Don't See Your Exact Role Listed?"
-        subtitle="We are always looking for ambitious performance marketers, videographers, and growth thinkers. Drop your CV directly."
-        primaryBtnText="Email Resume to HR"
-        primaryBtnTo={`mailto:${AGENCY_HR_EMAIL}?subject=Spontaneous Application - The Social Setu`}
+        title="Have Questions About These Roles?"
+        subtitle="Feel free to email your CV or inquiries directly to our agency hiring team."
+        primaryBtnText="Email hello.thesocialsetu@gmail.com"
+        primaryBtnTo={`mailto:${AGENCY_HR_EMAIL}?subject=Career Inquiry - The Social Setu`}
       />
     </>
   );
