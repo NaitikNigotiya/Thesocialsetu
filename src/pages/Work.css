@@ -3,13 +3,13 @@
 .work-minimal-page {
   background-color: #ffffff;
   color: var(--color-primary-navy);
-  padding: 3rem 0 5rem 0;
+  padding: 4.5rem 0 5rem 0;
   min-height: 80vh;
 }
 
 .work-container {
   width: 100%;
-  max-width: 1600px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
   padding: 0 1.5rem;
 }

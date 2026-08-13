@@ -1,202 +1,109 @@
-// Case Studies dataset for portfolio listing and detail pages
+// Case Studies / Blog Posts dataset for portfolio listing and detail pages
 export const caseStudiesData = [
   {
-    slug: 'nexus-edtech-lead-generation',
-    client: 'Nexus EdTech Academy',
-    industry: 'Education & EdTech',
-    summary: 'Scaled student enrollments by 340% while cutting lead acquisition costs by 48% through multi-channel performance ads and automated WhatsApp funnels.',
-    problem: 'Nexus EdTech was facing high customer acquisition costs (CAC) on legacy Meta campaigns, low lead quality, and a 4-day lag in lead follow-ups by their admissions team.',
-    strategy: 'We rebuilt their landing page funnels, introduced direct Click-to-WhatsApp performance ads, implemented automated lead qualification bots, and created targeted Google Search campaigns for high-intent keywords.',
-    servicesUsed: ['Performance Ads (PPC)', 'Lead Generation Funnels', 'WhatsApp Marketing & Automation'],
-    heroImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80',
-    results: [
-      { metric: '340%', label: 'Increase in Paid Student Enrollments' },
-      { metric: '48%', label: 'Reduction in Cost Per Lead (CPL)' },
-      { metric: '15,000+', label: 'Qualified Leads Generated' },
-      { metric: '4.8x', label: 'Blended ROAS Achieved' }
-    ],
-    testimonial: {
-      quote: 'The Social Setu completely transformed our student acquisition system. Their WhatsApp automation alone cut our lead response time from days to seconds, driving record enrollment numbers.',
-      author: 'Vikramaditya Rao',
-      designation: 'VP Growth, Nexus EdTech'
-    }
-  },
-  {
-    slug: 'aura-d2c-ecommerce-growth',
-    client: 'Aura Lifestyle & Skincare',
-    industry: 'E-commerce & D2C',
-    summary: 'Grew monthly D2C online store revenue from ₹12 Lakhs to ₹65 Lakhs within 7 months through high-converting Reels, performance scaling, and retention email flows.',
-    problem: 'Aura struggled with low customer lifetime value (LTV), ad fatigue on social platforms, and poor website checkout conversion rates.',
-    strategy: 'Implemented a content-first Reels strategy showcasing user transformation stories, created lookalike ad funnels, and optimized web checkout UX alongside automated abandoned cart recovery sequences.',
-    servicesUsed: ['Performance Ads (PPC)', 'Social Media Management', 'Web Design & CRO', 'Video Marketing & Short Reels'],
-    heroImage: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1200&q=80',
-    results: [
-      { metric: '5.4x', label: 'Revenue Growth in 7 Months' },
-      { metric: '3.9x', label: 'Average Meta Ad Spend ROAS' },
-      { metric: '42%', label: 'Increase in Repeat Purchases' },
-      { metric: '2.8%', label: 'Web Conversion Rate Improvement' }
-    ],
-    testimonial: {
-      quote: 'Working with The Social Setu feels like having an in-house growth squad. Their video ad creatives performed beyond our expectations and unlocked massive scale.',
-      author: 'Ananya Sharma',
-      designation: 'Founder & CEO, Aura Lifestyle'
-    }
-  },
-  {
-    slug: 'apex-medica-clinic-patient-funnel',
-    client: 'Apex Dental & Aesthetics Chain',
-    industry: 'Healthcare & Clinics',
-    summary: 'Generated 1,200+ high-ticket patient consultation bookings per month across 6 regional clinics with localized Google Ads and hyper-targeted Meta video campaigns.',
-    problem: 'Apex clinics relied heavily on print media and local footfall, suffering inconsistent patient appointments and zero digital tracking of marketing spend.',
-    strategy: 'Deployed geo-targeted Google Local Search ads, created localized clinic virtual tour videos, built one-click booking landing pages, and established a direct SMS/WhatsApp appointment reminder system.',
-    servicesUsed: ['Performance Ads (PPC)', 'SEO & Organic Growth', 'Lead Generation Funnels'],
-    heroImage: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80',
-    results: [
-      { metric: '1,200+', label: 'Monthly Patient Consultations' },
-      { metric: '+280%', label: 'Organic Local Map Pack Visibility' },
-      { metric: '₹340', label: 'Average Cost Per Qualified Booking' },
-      { metric: '92%', label: 'Clinic Appointment Attendance Rate' }
-    ],
-    testimonial: {
-      quote: 'We filled our appointment calendars across all 6 branches within 60 days of launching with Setu. Their local search strategy dominates our market.',
-      author: 'Dr. Siddharth Kapoor',
-      designation: 'Medical Director, Apex Clinics'
-    }
-  },
-  {
-    slug: 'horizon-realty-luxury-leads',
-    client: 'Horizon Prime Developers',
-    industry: 'Real Estate & Properties',
-    summary: 'Captured ₹45 Crore in luxury property sales within 90 days for a premium residential high-rise project launch.',
-    problem: 'Horizon needed ultra-wealthy buyer inquiries for premium 3BHK and penthouse units in a competitive real estate market filled with noisy, low-quality lead brokers.',
-    strategy: 'Engineered an exclusive invitation-only landing page, deployed hyper-segmented LinkedIn and Instagram video ads targeting high-net-worth individuals, and implemented instant phone verification for leads.',
-    servicesUsed: ['Performance Ads (PPC)', 'Lead Generation Funnels', 'Brand Strategy & Identity'],
-    heroImage: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
-    results: [
-      { metric: '₹45 Cr+', label: 'Property Sales Closed' },
-      { metric: '450+', label: 'HNW Qualified Site Visit Inquiries' },
-      { metric: '14.2%', label: 'Lead-to-Site Visit Conversion Rate' },
-      { metric: '12x', label: 'Return on Marketing Investment' }
-    ],
-    testimonial: {
-      quote: 'The Setu team understands luxury buyer psychology. The leads they delivered were pre-qualified and ready for site visits from day one.',
-      author: 'Rajesh Singhania',
-      designation: 'Chief Marketing Officer, Horizon Developers'
-    }
-  },
-  {
-    slug: 'cloudscale-saas-b2b-pipeline',
-    client: 'CloudScale B2B Software',
-    industry: 'B2B SaaS & Tech',
-    summary: 'Built a $1.2M qualified B2B sales pipeline for an enterprise HR tech platform using thought-leadership content and LinkedIn Account-Based Marketing (ABM).',
-    problem: 'CloudScale had high organic traffic but low demo request conversions from key enterprise decision-makers (CHROs and IT Heads).',
-    strategy: 'Developed an interactive ROI calculator tool, published authoritative B2B industry research reports, and ran targeted LinkedIn ABM campaigns pointing to specialized landing pages.',
-    servicesUsed: ['SEO & Organic Growth', 'Brand Strategy & Identity', 'Lead Generation Funnels'],
+    slug: 'b2b-saas-cpa-lead-growth',
+    title: 'How a B2B SaaS Brand Cut CPA by 32% and Grew Leads 24% in 3 Months',
+    client: 'B2B SaaS — AI Workplace Communications',
+    industry: 'B2B SaaS & AI',
+    summary: 'How an AI workplace communications platform combined paid search with LinkedIn thought leadership to cut CPA by 32%, lower marketing costs by 16%, and grow lead submissions 24%.',
+    problem: 'An AI-powered workplace communications platform had low brand awareness and no paid advertising strategy in place. It needed a full-funnel approach that could build demand and capture high-intent searches quickly, without a long runway to experiment.',
+    strategy: 'The team built a paid search program covering three layers: brand terms, high-intent brand-adjacent searches, and competitor searches — so the brand could capture demand at every stage of awareness. This was paired with a LinkedIn thought-leadership push that built authority in the space while quietly feeding first-party engagement data back into ad targeting. Execution focused on tightly matching ad copy to search and social intent, testing creative and landing pages specifically for lead submissions, using LinkedIn to build out first-party audience lists, and optimizing bids and landing pages every week rather than monthly.',
+    servicesUsed: ['Paid Search (PPC)', 'LinkedIn Thought Leadership', 'Landing Page Optimization'],
     heroImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
     results: [
-      { metric: '$1.2M', label: 'Pipeline Opportunity Value Generated' },
-      { metric: '+195%', label: 'Demo Request Submissions' },
-      { metric: '68%', label: 'Reduction in Sales Cycle Duration' },
-      { metric: '25+', label: 'Enterprise Contracts Signed' }
+      { metric: '+24%', label: 'Lead Submissions Increase' },
+      { metric: '-16%', label: 'Overall Marketing Costs Drop' },
+      { metric: '-32%', label: 'Cost Per Acquisition (CPA)' },
+      { metric: 'Tier 1', label: 'Primary Leads via LinkedIn' }
     ],
-    testimonial: {
-      quote: 'Setu bridge the gap between marketing effort and real sales pipeline. Their account-based strategies opened doors to corporate clients we had been trying to reach for years.',
-      author: 'Meera Nair',
-      designation: 'Head of Growth, CloudScale Tech'
-    }
+    keyTakeaway: 'Pairing paid search with LinkedIn thought leadership lets a brand lower acquisition costs quickly — search captures intent, LinkedIn builds the trust that makes that intent convert.',
+    source: 'Single Grain (singlegrain.com) — industry case study, referenced for educational purposes.'
+  },
+  {
+    slug: 'gumps-yoy-sales-seo-shopping',
+    title: "How Gump's Beat Prior-Year Sales with 92% YoY Growth Using SEO + Shopping",
+    client: "Gump's San Francisco",
+    industry: 'Specialty Retail — Home Decor & Jewelry',
+    summary: "Gump's San Francisco surpassed prior-year sales with 92% YoY growth, 79% overall revenue increase, and a 104% Google ROI in home decor by unifying SEO, Shopping, and retention.",
+    problem: "Gump's San Francisco, a specialty home decor and jewelry retailer, had already had a strong year and wanted to push revenue even higher — surpassing prior-year performance through a more coordinated digital strategy rather than simply spending more.",
+    strategy: 'The approach combined three moves: retention and cross-sell tactics aimed at existing customers, an expanded Google Search and Shopping presence to bring in new buyers, and tighter optimization of home-decor product listings around high-intent search terms. On execution, that meant investing in paid ads across channels, refining the product feed and keyword targeting specifically for the home decor category, and retargeting existing customers with personalized offers to lift repeat purchases.',
+    servicesUsed: ['Google Search & Shopping', 'E-commerce SEO', 'Retention & Retargeting'],
+    heroImage: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1200&q=80',
+    results: [
+      { metric: '+92%', label: 'YoY Sales Growth via Marketing' },
+      { metric: '+79%', label: 'Overall Revenue Increase' },
+      { metric: '+40%', label: 'Web Traffic Growth' },
+      { metric: '104%', label: 'Google ROI (Home Decor)' }
+    ],
+    keyTakeaway: 'When SEO, Shopping, and paid search are coordinated around the categories that already convert, a retailer can compound growth rather than chase it channel by channel.',
+    source: 'Single Grain (singlegrain.com) — industry case study, referenced for educational purposes.'
+  },
+  {
+    slug: 'hestan-culinary-programmatic-roas',
+    title: 'How Hestan Culinary Turned ROAS from 1.91 to 9.20 with Programmatic Ads',
+    client: 'Hestan Culinary',
+    industry: 'Premium D2C — Chef-Grade Cookware',
+    summary: 'Hestan Culinary scaled conversions by 218% and multiplied ROAS from 1.91 to 9.20 using full-funnel programmatic ads via StackAdapt.',
+    problem: 'Hestan Culinary sells high-end, chef-grade cookware — a considered purchase with a longer buyer journey. Sales had started to slip, and the brand needed both revenue growth and materially better return on ad spend.',
+    strategy: 'The strategy expanded the brand into programmatic advertising (via StackAdapt) with a full-funnel structure: catalog and native feed units to reach qualified shoppers early, precise audience targeting, and funnel sequencing designed to nurture buyers through a longer consideration window rather than push for an immediate sale. Catalog and native ads were deployed to reach qualified users early in the journey, creative and placements were optimized to move people down the funnel, and performance was tracked for over 45 days to confirm the gains would hold, not just spike.',
+    servicesUsed: ['Programmatic Ads (StackAdapt)', 'Native Feed & Catalog Ads', 'Full-Funnel Retargeting'],
+    heroImage: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80',
+    results: [
+      { metric: '+218%', label: 'Conversions Increase' },
+      { metric: '9.20', label: 'ROAS (Up from 1.91)' },
+      { metric: '45+ Days', label: 'Sustained Revenue Gains' },
+      { metric: '100%', label: 'Full-Funnel Catalog Reach' }
+    ],
+    keyTakeaway: "For higher-ticket products, programmatic isn't just extra reach — catalog/native formats plus deliberate funnel sequencing can multiply efficiency, not just volume.",
+    source: 'Single Grain (singlegrain.com) — industry case study, referenced for educational purposes.'
+  },
+  {
+    slug: 'learning-az-landing-page-cro',
+    title: 'How Learning A-Z Generated 125% More Conversions with a Simpler Landing Page',
+    client: 'Learning A-Z',
+    industry: 'EdTech — K-6 School Learning Products',
+    summary: 'Learning A-Z boosted total conversions by 125% and order clicks by 73% by stripping friction off their landing page and targeting K-5 school administrators.',
+    problem: 'Learning A-Z sells blended learning products to K-6 schools. Its landing page had too many competing links and calls-to-action, which confused buyers and diluted intent. The brand needed more license sales specifically from school administrators.',
+    strategy: 'The fix started with the page itself: it was redesigned down to just one or two clear calls-to-action ("Free Trial" and "Order Now"). On the media side, the team targeted K-5 school administrators directly on LinkedIn by job title, then later shifted budget toward Facebook Admin targeting once it proved to deliver stronger returns. Execution combined simplifying the page to remove friction, running precise LinkedIn job-title targeting, and reallocating budget to the better-performing channel after testing rather than splitting spend evenly.',
+    servicesUsed: ['Landing Page CRO', 'LinkedIn Decision-Maker Ads', 'Facebook Paid Marketing'],
+    heroImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80',
+    results: [
+      { metric: '+125%', label: 'Overall Conversion Lift' },
+      { metric: '+73%', label: 'Order Now Clicks Increase' },
+      { metric: '+42%', label: 'Free Trial Clicks Increase' },
+      { metric: '5.47', label: 'Facebook Admin Campaign ROAS' }
+    ],
+    keyTakeaway: 'Conversion lifts often come less from bigger budgets and more from removing friction on the page and matching targeting to the exact decision-maker — then following the data on where to spend.',
+    source: 'Single Grain (singlegrain.com) — industry case study, referenced for educational purposes.'
+  },
+  {
+    slug: 'locknlube-multi-channel-ecommerce-growth',
+    title: 'How LockNLube Added 8 New Channels and Grew AOV 42% with a Multi-Channel Strategy',
+    client: 'LockNLube',
+    industry: 'Automotive / E-commerce — Auto Parts & Greasing',
+    summary: 'LockNLube expanded across 8 marketing channels, boosting Amazon revenue by 54%, increasing Average Order Value by 42%, and driving paid traffic up 68%.',
+    problem: 'LockNLube, which sells greasing products and car parts, needed three things at once heading into peak season: stronger Amazon optimization, better bidding controls on eBay (where Promoted Listings Advanced didn\'t offer enough control), and more top-of-funnel awareness to fuel future growth.',
+    strategy: 'The team rebuilt Amazon listings — titles, descriptions, and A+ content — and A/B tested images and copy. On eBay, they imported top-performing keywords from Amazon and Google to compensate for the platform\'s limited bidding tools. TikTok creatives were refreshed to drive upper-funnel awareness at low cost. Alongside this, the brand added eight new channels — YouTube, DSP, Instagram/Facebook Shopping, Walmart Ads, SMS, Performance Max, and more — with coordinated messaging across all of them, tracked from Q1 2019 through Q3 2022.',
+    servicesUsed: ['Amazon & E-commerce SEO', 'Multi-Channel Paid Media', 'Marketplace Bidding Control'],
+    heroImage: 'https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=1200&q=80',
+    results: [
+      { metric: '+54%', label: 'Amazon Revenue YoY Growth' },
+      { metric: '+42%', label: 'Average Order Value (AOV)' },
+      { metric: '+68%', label: 'Paid Traffic Increase' },
+      { metric: '110%', label: 'eBay ROAS Improvement' }
+    ],
+    keyTakeaway: 'Diversifying across channels only compounds results when it\'s paired with tighter marketplace SEO, sharper creative, and disciplined bidding — reach alone isn\'t the win.',
+    source: 'Single Grain (singlegrain.com) — industry case study, referenced for educational purposes.'
   }
 ];
 
-// Minimal Full-Bleed Masonry Work Portfolio Gallery Dataset (Various Aspect Ratios)
-export const workGalleryItems = [
-  {
-    id: 1,
-    slug: 'nexus-edtech-lead-generation',
-    client: 'Nexus EdTech Academy',
-    category: 'EdTech & Lead Funnels',
-    title: 'EdTech Multi-Channel Enrollment Campaign',
-    stats: '+340% Enrollments',
-    aspect: 'landscape',
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80'
-  },
-  {
-    id: 2,
-    slug: 'aura-d2c-ecommerce-growth',
-    client: 'Aura Lifestyle',
-    category: 'D2C E-commerce & Reels',
-    title: 'Aura Skincare Visual Campaign & Reels',
-    stats: '5.4x Revenue Growth',
-    aspect: 'portrait',
-    image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=900&q=80'
-  },
-  {
-    id: 3,
-    slug: 'horizon-realty-luxury-leads',
-    client: 'Horizon Prime Developers',
-    category: 'Real Estate & Luxury',
-    title: 'Horizon Luxury Residential High-Rise Launch',
-    stats: '₹45 Cr Sales Closed',
-    aspect: 'portrait',
-    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80'
-  },
-  {
-    id: 4,
-    slug: 'apex-medica-clinic-patient-funnel',
-    client: 'Apex Aesthetics Chain',
-    category: 'Healthcare & Local Ads',
-    title: 'Apex Dental & Clinic Patient Acquisition',
-    stats: '1,200+ Monthly Bookings',
-    aspect: 'landscape',
-    image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80'
-  },
-  {
-    id: 5,
-    slug: 'cloudscale-saas-b2b-pipeline',
-    client: 'CloudScale Tech',
-    category: 'B2B SaaS & ABM',
-    title: 'CloudScale B2B Enterprise Funnel UI',
-    stats: '$1.2M Sales Pipeline',
-    aspect: 'square',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80'
-  },
-  {
-    id: 6,
-    slug: 'aura-d2c-ecommerce-growth',
-    client: 'Aura Lifestyle',
-    category: 'Brand Photography',
-    title: 'Aura Natural Botanical Product Shoot',
-    stats: '3.9x Meta ROAS',
-    aspect: 'landscape',
-    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80'
-  },
-  {
-    id: 7,
-    slug: 'horizon-realty-luxury-leads',
-    client: 'Horizon Prime Developers',
-    category: 'Interior Architecture',
-    title: 'Penthouse Luxury Suite Virtual Tour Assets',
-    stats: '14.2% Site Visit CVR',
-    aspect: 'square',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80'
-  },
-  {
-    id: 8,
-    slug: 'nexus-edtech-lead-generation',
-    client: 'Nexus EdTech Academy',
-    category: 'Interactive Learning',
-    title: 'Nexus Student Portal & Mobile UI',
-    stats: '15,000+ Leads',
-    aspect: 'portrait',
-    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80'
-  },
-  {
-    id: 9,
-    slug: 'apex-medica-clinic-patient-funnel',
-    client: 'Apex Aesthetics Chain',
-    category: 'Clinic Branding',
-    title: 'Apex Dental Care Modern Clinic Suite',
-    stats: '+280% Local Map Reach',
-    aspect: 'portrait',
-    image: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=80'
-  }
-];
+export const workGalleryItems = caseStudiesData.map((cs, idx) => ({
+  id: idx + 1,
+  slug: cs.slug,
+  client: cs.client,
+  category: cs.industry,
+  title: cs.title,
+  stats: (cs.results[0]?.metric || '') + ' ' + (cs.results[0]?.label || ''),
+  aspect: idx % 2 === 0 ? 'landscape' : 'portrait',
+  image: cs.heroImage
+}));

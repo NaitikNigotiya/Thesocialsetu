@@ -2,7 +2,7 @@
 .cs-hero {
   background-color: var(--color-primary-navy);
   color: var(--color-white);
-  padding: 4.5rem 0;
+  padding: 4.5rem 0 3.5rem 0;
 }
 
 .cs-metric-card {

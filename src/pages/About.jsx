@@ -13,31 +13,31 @@ const TEAM_MEMBERS = [
     id: 1,
     name: 'Raghav Gupta',
     role: 'Founder',
-    bio: 'Digital marketing strategist; BBA graduate, currently pursuing MBA.',
-    badge: 'Leadership',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80'
+    bio: 'Raghav Gupta is the Founder of The Social Setu. With a BBA and an ongoing MBA, he leads strategy, client relationships, and the agency’s growth with a hands-on, results-driven approach.',
+    badge: 'Founder & Strategy',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80'
   },
   {
     id: 2,
     name: 'Ashutosh Patidar',
     role: 'Video Editor & Videographer',
-    bio: 'Handles video editing, motion graphics, and high-impact video shoots.',
+    bio: 'Ashutosh leads video production, handling shoots, filming, and editing to create engaging, trend-driven content that reflects each brand’s identity.',
     badge: 'Video Production',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80'
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80'
   },
   {
     id: 3,
     name: 'Karishma Jain',
     role: 'Social Media Manager',
-    bio: 'Manages social media accounts, organic strategy, and brand content.',
+    bio: 'Karishma manages social media strategy, content calendars, captions, and performance tracking to drive consistent engagement and growth.',
     badge: 'Social Strategy',
     image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80'
   },
   {
     id: 4,
     name: 'Freelance Network',
-    role: 'Extended Growth Specialists',
-    bio: 'A dedicated pool of senior freelancers supporting specialized projects as needed.',
+    role: 'Designers, Writers & Specialists',
+    bio: 'The Social Setu also works with freelance designers, writers, and specialists to support larger campaigns and projects.',
     badge: 'Specialist Pool',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80'
   }
@@ -101,8 +101,8 @@ export const About = () => {
   return (
     <>
       <SEO
-        title="About Our Agency | Leadership & Team"
-        description="Meet the core growth team and leadership behind The Social Setu empowering Indian SMEs."
+        title="About The Social Setu | Bridging Brands to Customers"
+        description="Learn about The Social Setu — a young, energetic digital marketing agency led by founder Raghav Gupta. Meet our core team in performance ads, video production, and social media."
       />
 
       {/* Hero / Header Animation Section */}
@@ -113,7 +113,7 @@ export const About = () => {
             <div className="hero-content">
               <div className="badge-tag animated-item">
                 <span className="badge-dot"></span>
-                <span>WE ARE INNOVATORS</span>
+                <span>BRIDGING BRANDS TO CUSTOMERS</span>
               </div>
 
               <h1 className="hero-title">
@@ -122,7 +122,7 @@ export const About = () => {
               </h1>
 
               <p className="hero-description animated-item">
-                We are a passionate collective of creators, performance marketers, and growth engineers dedicated to turning bold brand ideas into predictable digital revenue.
+                The Social Setu is a full-service digital marketing agency helping small and growing brands build visibility, generate leads, and scale online through social media, paid ads, SEO, and website development.
               </p>
 
               <div className="hero-cta animated-item">
@@ -147,13 +147,13 @@ export const About = () => {
                 </div>
 
                 <div className="feature-card stat-card-1 animated-card">
-                  <h3>250+</h3>
-                  <p>Projects & Campaigns</p>
+                  <h3>Startup-First</h3>
+                  <p>Approach & Pricing</p>
                 </div>
 
                 <div className="feature-card stat-card-2 animated-card">
-                  <h3>10+</h3>
-                  <p>SME Industries Served</p>
+                  <h3>100%</h3>
+                  <p>Transparent Reporting</p>
                 </div>
               </div>
             </div>
@@ -250,9 +250,9 @@ export const About = () => {
 
             <div className="card">
               <TrendingUp size={32} color="var(--color-primary-orange)" style={{ marginBottom: '1rem' }} />
-              <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>ROAS Obsession</h3>
+              <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>Hands-On & Results-First</h3>
               <p style={{ fontSize: '0.95rem', color: 'var(--color-muted)' }}>
-                We judge success solely by bottom-line sales revenue and qualified lead acquisition costs.
+                Fewer templated solutions, more strategies built around what each brand actually needs to grow.
               </p>
             </div>
 
@@ -260,7 +260,7 @@ export const About = () => {
               <Users size={32} color="var(--color-primary-orange)" style={{ marginBottom: '1rem' }} />
               <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>Dedicated Growth Squad</h3>
               <p style={{ fontSize: '0.95rem', color: 'var(--color-muted)' }}>
-                Direct WhatsApp access to senior copywriters, media buyers, and landing page developers.
+                Direct communication with Raghav and our core specialists — ensuring rapid responses and campaign updates.
               </p>
             </div>
           </div>

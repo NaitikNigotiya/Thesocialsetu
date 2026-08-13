@@ -1,6 +1,6 @@
 import React from 'react';
-import { useParams, Navigate } from 'react-router-dom';
-import { AlertCircle, Lightbulb, Quote } from 'lucide-react';
+import { useParams, Navigate, Link } from 'react-router-dom';
+import { AlertCircle, Lightbulb, ExternalLink, ArrowLeft, CheckCircle2 } from 'lucide-react';
 import SEO from '../components/sections/SEO';
 import Badge from '../components/ui/Badge';
 import Card from '../components/ui/Card';
@@ -19,18 +19,25 @@ export const CaseStudyDetail = () => {
   return (
     <>
       <SEO
-        title={`${study.client} - Case Study`}
+        title={`${study.title} — Industry Case Study`}
         description={study.summary}
       />
 
       <section className="cs-hero">
         <div className="container">
-          <div style={{ maxWidth: '840px' }}>
+          <div style={{ maxWidth: '880px' }}>
+            <div style={{ marginBottom: '1.25rem' }}>
+              <Link to="/work" style={{ color: '#94a3b8', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.9rem', fontWeight: 600 }}>
+                <ArrowLeft size={16} /> Back to Case Studies
+              </Link>
+            </div>
             <Badge variant="dark" style={{ marginBottom: '1rem' }}>
-              {study.industry} CASE STUDY
+              {study.industry}
             </Badge>
-            <h1 style={{ color: '#fff', marginBottom: '1.25rem' }}>{study.client}</h1>
-            <p style={{ fontSize: '1.2rem', color: '#94a3b8', marginBottom: '2rem', lineHeight: 1.6 }}>
+            <h1 style={{ color: '#fff', marginBottom: '1.25rem', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)', lineHeight: 1.25 }}>
+              {study.title}
+            </h1>
+            <p style={{ fontSize: '1.15rem', color: '#94a3b8', marginBottom: '2rem', lineHeight: 1.6 }}>
               {study.summary}
             </p>
 
@@ -58,10 +65,10 @@ export const CaseStudyDetail = () => {
           <div className="grid-4">
             {study.results.map((res, idx) => (
               <div key={idx} className="cs-metric-card">
-                <div style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--color-primary-orange)', fontFamily: 'var(--font-primary)' }}>
+                <div style={{ fontSize: '2.3rem', fontWeight: 800, color: 'var(--color-primary-orange)', fontFamily: 'var(--font-primary)' }}>
                   {res.metric}
                 </div>
-                <div style={{ fontSize: '0.9rem', color: 'var(--color-primary-navy)', fontWeight: 600, marginTop: '0.3rem' }}>
+                <div style={{ fontSize: '0.875rem', color: 'var(--color-primary-navy)', fontWeight: 600, marginTop: '0.3rem' }}>
                   {res.label}
                 </div>
               </div>
@@ -73,59 +80,73 @@ export const CaseStudyDetail = () => {
       {/* Problem vs Strategy Breakdown */}
       <section className="section" style={{ backgroundColor: '#ffffff' }}>
         <div className="container" style={{ maxWidth: '960px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', marginBottom: '4rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2.5rem', marginBottom: '3rem' }}>
             <Card style={{ borderLeft: '4px solid #ef4444' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: '#ef4444', fontWeight: 700, marginBottom: '0.75rem' }}>
                 <AlertCircle size={22} />
                 <span>THE CHALLENGE</span>
               </div>
-              <h3 style={{ fontSize: '1.25rem', marginBottom: '0.75rem' }}>Initial Growth Bottleneck</h3>
-              <p style={{ fontSize: '1rem', color: 'var(--color-body)', lineHeight: 1.6 }}>
+              <h3 style={{ fontSize: '1.2rem', marginBottom: '0.75rem' }}>Growth Bottleneck</h3>
+              <p style={{ fontSize: '0.975rem', color: 'var(--color-body)', lineHeight: 1.65 }}>
                 {study.problem}
               </p>
             </Card>
 
             <Card style={{ borderLeft: '4px solid var(--color-primary-orange)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--color-primary-orange)', fontWeight: 700, marginBottom: '0.75rem' }}>
-                <Lightbulb size={22} />
-                <span>THE STRATEGY</span>
+                <CheckCircle2 size={22} />
+                <span>THE STRATEGY & EXECUTION</span>
               </div>
-              <h3 style={{ fontSize: '1.25rem', marginBottom: '0.75rem' }}>Our Tactical Blueprint</h3>
-              <p style={{ fontSize: '1rem', color: 'var(--color-body)', lineHeight: 1.6 }}>
+              <h3 style={{ fontSize: '1.2rem', marginBottom: '0.75rem' }}>Tactical Execution</h3>
+              <p style={{ fontSize: '0.975rem', color: 'var(--color-body)', lineHeight: 1.65 }}>
                 {study.strategy}
               </p>
             </Card>
           </div>
 
-          {/* Testimonial Quote Block */}
-          {study.testimonial && (
+          {/* Key Takeaway Box */}
+          {study.keyTakeaway && (
             <div style={{
-              background: 'var(--color-dark-navy)',
+              background: 'linear-gradient(135deg, var(--color-dark-navy) 0%, #1e293b 100%)',
               color: '#fff',
-              padding: '3rem',
-              borderRadius: 'var(--radius-lg)',
-              position: 'relative'
+              padding: '2.5rem',
+              borderRadius: 'var(--radius-md)',
+              marginBottom: '2.5rem',
+              borderLeft: '5px solid var(--color-primary-orange)'
             }}>
-              <Quote size={48} color="var(--color-primary-orange)" style={{ opacity: 0.3, marginBottom: '1rem' }} />
-              <p style={{ fontSize: '1.25rem', fontStyle: 'italic', marginBottom: '1.75rem', lineHeight: 1.6, color: '#f8fafc' }}>
-                "{study.testimonial.quote}"
-              </p>
-              <div>
-                <div style={{ fontWeight: 700, fontSize: '1.1rem', fontFamily: 'var(--font-primary)', color: 'var(--color-primary-orange)' }}>
-                  {study.testimonial.author}
-                </div>
-                <div style={{ fontSize: '0.9rem', color: '#94a3b8' }}>
-                  {study.testimonial.designation} • {study.client}
-                </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--color-primary-orange)', fontWeight: 800, fontSize: '0.9rem', letterSpacing: '0.05em', textTransform: 'uppercase', marginBottom: '0.85rem' }}>
+                <Lightbulb size={20} />
+                <span>KEY TAKEAWAY</span>
               </div>
+              <p style={{ fontSize: '1.1rem', fontWeight: 500, lineHeight: 1.6, color: '#f8fafc', margin: 0 }}>
+                "{study.keyTakeaway}"
+              </p>
+            </div>
+          )}
+
+          {/* Source Attribution Note */}
+          {study.source && (
+            <div style={{
+              background: 'var(--color-off-white)',
+              padding: '1rem 1.5rem',
+              borderRadius: 'var(--radius-sm)',
+              border: '1px solid rgba(25, 33, 47, 0.1)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.6rem',
+              fontSize: '0.85rem',
+              color: 'var(--color-muted)'
+            }}>
+              <ExternalLink size={15} style={{ flexShrink: 0 }} />
+              <span><strong>Source Credit:</strong> {study.source}</span>
             </div>
           )}
         </div>
       </section>
 
       <CTABanner
-        title="Ready for Similar Campaign Results?"
-        subtitle="Schedule a free strategy audit with our growth team to discuss your goals."
+        title="Ready to Achieve Similar Campaign Results?"
+        subtitle="Schedule a free strategy consultation with The Social Setu team today."
       />
     </>
   );
