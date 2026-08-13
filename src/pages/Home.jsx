@@ -11,6 +11,9 @@ import {
 import SEO from '../components/sections/SEO';
 import Button from '../components/ui/Button';
 import { heroServices } from '../data/servicesData';
+import karishmaImg from '../assets/karishma-jain.jpg';
+import ashutoshImg from '../assets/ashutosh-patidar.jpg';
+import raghavImg from '../assets/raghav-gupta.jpg';
 import './Home.css';
 
 export const Home = () => {
@@ -163,8 +166,8 @@ export const Home = () => {
                 <div className="card">
                   <div className="content">
                     <img 
-                      src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" 
-                      alt="Digital Marketing Strategy" 
+                      src={raghavImg} 
+                      alt="Raghav Gupta - Founder" 
                       className="card-bg-img"
                     />
                   </div>
@@ -172,8 +175,8 @@ export const Home = () => {
                 <div className="card">
                   <div className="content">
                     <img 
-                      src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" 
-                      alt="Performance Analytics" 
+                      src={ashutoshImg} 
+                      alt="Ashutosh Patidar - Video Production Lead" 
                       className="card-bg-img"
                     />
                   </div>
@@ -181,8 +184,8 @@ export const Home = () => {
                 <div className="card">
                   <div className="content">
                     <img 
-                      src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" 
-                      alt="Growth Team Consultation" 
+                      src={karishmaImg} 
+                      alt="Karishma Jain - Social Media Manager" 
                       className="card-bg-img"
                     />
                   </div>

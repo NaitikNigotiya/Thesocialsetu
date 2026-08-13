@@ -6,6 +6,9 @@ import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
 import CTABanner from '../components/sections/CTABanner';
 import TrustStatsBar from '../components/sections/TrustStatsBar';
+import karishmaImg from '../assets/karishma-jain.jpg';
+import ashutoshImg from '../assets/ashutosh-patidar.jpg';
+import raghavImg from '../assets/raghav-gupta.jpg';
 import './About.css';
 
 const TEAM_MEMBERS = [
@@ -15,7 +18,7 @@ const TEAM_MEMBERS = [
     role: 'Founder',
     bio: 'Raghav Gupta is the Founder of The Social Setu. With a BBA and an ongoing MBA, he leads strategy, client relationships, and the agency’s growth with a hands-on, results-driven approach.',
     badge: 'Founder & Strategy',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80'
+    image: raghavImg
   },
   {
     id: 2,
@@ -23,7 +26,7 @@ const TEAM_MEMBERS = [
     role: 'Video Editor & Videographer',
     bio: 'Ashutosh leads video production, handling shoots, filming, and editing to create engaging, trend-driven content that reflects each brand’s identity.',
     badge: 'Video Production',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80'
+    image: ashutoshImg
   },
   {
     id: 3,
@@ -31,7 +34,7 @@ const TEAM_MEMBERS = [
     role: 'Social Media Manager',
     bio: 'Karishma manages social media strategy, content calendars, captions, and performance tracking to drive consistent engagement and growth.',
     badge: 'Social Strategy',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80'
+    image: karishmaImg
   },
   {
     id: 4,
