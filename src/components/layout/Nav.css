@@ -466,11 +466,26 @@
 
 @media (max-width: 992px) {
   .header-wrapper {
+    position: sticky;
     top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
   }
 
+  .top-infobar-wrapper,
   .top-infobar {
-    display: none;
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .navbar {
+    position: relative;
+    top: 0;
   }
 
   .desktop-only-search {
@@ -503,6 +518,7 @@
     transition: transform 0.3s ease-in-out;
     opacity: 0;
     pointer-events: none;
+    z-index: 1050;
   }
 
   .nav-menu.open {
