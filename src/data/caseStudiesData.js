@@ -1,3 +1,14 @@
+import img1_1 from '../assets/blog/1.1.jpg';
+import img1_2 from '../assets/blog/1.2.jpg';
+import img2_1 from '../assets/blog/2.1.jpg';
+import img2_2 from '../assets/blog/2.2.jpg';
+import img3_1 from '../assets/blog/3.1.jpeg';
+import img3_2 from '../assets/blog/3.2.jpg';
+import img4_1 from '../assets/blog/4.1.png';
+import img4_2 from '../assets/blog/4.2.jpg';
+import img5_1 from '../assets/blog/5.1.jpg';
+import img5_2 from '../assets/blog/5.2.jpg';
+
 // Case Studies / Blog Posts dataset for portfolio listing and detail pages
 export const caseStudiesData = [
   {
@@ -9,7 +20,8 @@ export const caseStudiesData = [
     problem: 'An AI-powered workplace communications platform had low brand awareness and no paid advertising strategy in place. It needed a full-funnel approach that could build demand and capture high-intent searches quickly, without a long runway to experiment.',
     strategy: 'The team built a paid search program covering three layers: brand terms, high-intent brand-adjacent searches, and competitor searches — so the brand could capture demand at every stage of awareness. This was paired with a LinkedIn thought-leadership push that built authority in the space while quietly feeding first-party engagement data back into ad targeting. Execution focused on tightly matching ad copy to search and social intent, testing creative and landing pages specifically for lead submissions, using LinkedIn to build out first-party audience lists, and optimizing bids and landing pages every week rather than monthly.',
     servicesUsed: ['Paid Search (PPC)', 'LinkedIn Thought Leadership', 'Landing Page Optimization'],
-    heroImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
+    heroImage: img1_1,
+    secondaryImage: img1_2,
     results: [
       { metric: '+24%', label: 'Lead Submissions Increase' },
       { metric: '-16%', label: 'Overall Marketing Costs Drop' },
@@ -28,7 +40,8 @@ export const caseStudiesData = [
     problem: "Gump's San Francisco, a specialty home decor and jewelry retailer, had already had a strong year and wanted to push revenue even higher — surpassing prior-year performance through a more coordinated digital strategy rather than simply spending more.",
     strategy: 'The approach combined three moves: retention and cross-sell tactics aimed at existing customers, an expanded Google Search and Shopping presence to bring in new buyers, and tighter optimization of home-decor product listings around high-intent search terms. On execution, that meant investing in paid ads across channels, refining the product feed and keyword targeting specifically for the home decor category, and retargeting existing customers with personalized offers to lift repeat purchases.',
     servicesUsed: ['Google Search & Shopping', 'E-commerce SEO', 'Retention & Retargeting'],
-    heroImage: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1200&q=80',
+    heroImage: img2_1,
+    secondaryImage: img2_2,
     results: [
       { metric: '+92%', label: 'YoY Sales Growth via Marketing' },
       { metric: '+79%', label: 'Overall Revenue Increase' },
@@ -47,7 +60,8 @@ export const caseStudiesData = [
     problem: 'Hestan Culinary sells high-end, chef-grade cookware — a considered purchase with a longer buyer journey. Sales had started to slip, and the brand needed both revenue growth and materially better return on ad spend.',
     strategy: 'The strategy expanded the brand into programmatic advertising (via StackAdapt) with a full-funnel structure: catalog and native feed units to reach qualified shoppers early, precise audience targeting, and funnel sequencing designed to nurture buyers through a longer consideration window rather than push for an immediate sale. Catalog and native ads were deployed to reach qualified users early in the journey, creative and placements were optimized to move people down the funnel, and performance was tracked for over 45 days to confirm the gains would hold, not just spike.',
     servicesUsed: ['Programmatic Ads (StackAdapt)', 'Native Feed & Catalog Ads', 'Full-Funnel Retargeting'],
-    heroImage: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80',
+    heroImage: img3_1,
+    secondaryImage: img3_2,
     results: [
       { metric: '+218%', label: 'Conversions Increase' },
       { metric: '9.20', label: 'ROAS (Up from 1.91)' },
@@ -66,7 +80,8 @@ export const caseStudiesData = [
     problem: 'Learning A-Z sells blended learning products to K-6 schools. Its landing page had too many competing links and calls-to-action, which confused buyers and diluted intent. The brand needed more license sales specifically from school administrators.',
     strategy: 'The fix started with the page itself: it was redesigned down to just one or two clear calls-to-action ("Free Trial" and "Order Now"). On the media side, the team targeted K-5 school administrators directly on LinkedIn by job title, then later shifted budget toward Facebook Admin targeting once it proved to deliver stronger returns. Execution combined simplifying the page to remove friction, running precise LinkedIn job-title targeting, and reallocating budget to the better-performing channel after testing rather than splitting spend evenly.',
     servicesUsed: ['Landing Page CRO', 'LinkedIn Decision-Maker Ads', 'Facebook Paid Marketing'],
-    heroImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80',
+    heroImage: img4_1,
+    secondaryImage: img4_2,
     results: [
       { metric: '+125%', label: 'Overall Conversion Lift' },
       { metric: '+73%', label: 'Order Now Clicks Increase' },
@@ -85,7 +100,8 @@ export const caseStudiesData = [
     problem: 'LockNLube, which sells greasing products and car parts, needed three things at once heading into peak season: stronger Amazon optimization, better bidding controls on eBay (where Promoted Listings Advanced didn\'t offer enough control), and more top-of-funnel awareness to fuel future growth.',
     strategy: 'The team rebuilt Amazon listings — titles, descriptions, and A+ content — and A/B tested images and copy. On eBay, they imported top-performing keywords from Amazon and Google to compensate for the platform\'s limited bidding tools. TikTok creatives were refreshed to drive upper-funnel awareness at low cost. Alongside this, the brand added eight new channels — YouTube, DSP, Instagram/Facebook Shopping, Walmart Ads, SMS, Performance Max, and more — with coordinated messaging across all of them, tracked from Q1 2019 through Q3 2022.',
     servicesUsed: ['Amazon & E-commerce SEO', 'Multi-Channel Paid Media', 'Marketplace Bidding Control'],
-    heroImage: 'https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=1200&q=80',
+    heroImage: img5_1,
+    secondaryImage: img5_2,
     results: [
       { metric: '+54%', label: 'Amazon Revenue YoY Growth' },
       { metric: '+42%', label: 'Average Order Value (AOV)' },
@@ -97,13 +113,25 @@ export const caseStudiesData = [
   }
 ];
 
-export const workGalleryItems = caseStudiesData.map((cs, idx) => ({
-  id: idx + 1,
-  slug: cs.slug,
-  client: cs.client,
-  category: cs.industry,
-  title: cs.title,
-  stats: (cs.results[0]?.metric || '') + ' ' + (cs.results[0]?.label || ''),
-  aspect: idx % 2 === 0 ? 'landscape' : 'portrait',
-  image: cs.heroImage
-}));
+export const workGalleryItems = caseStudiesData.flatMap((cs, idx) => [
+  {
+    id: `${idx + 1}-a`,
+    slug: cs.slug,
+    client: cs.client,
+    category: cs.industry,
+    title: cs.title,
+    stats: (cs.results[0]?.metric || '') + ' ' + (cs.results[0]?.label || ''),
+    aspect: 'landscape',
+    image: cs.heroImage
+  },
+  {
+    id: `${idx + 1}-b`,
+    slug: cs.slug,
+    client: cs.client,
+    category: cs.industry,
+    title: `${cs.title} (Strategy Breakdown)`,
+    stats: (cs.results[1]?.metric || '') + ' ' + (cs.results[1]?.label || ''),
+    aspect: 'portrait',
+    image: cs.secondaryImage
+  }
+]);

@@ -71,10 +71,13 @@ export const Career = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    const mailtoUrl = generateMailtoLink(selectedJob);
+
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 600);
+      window.location.href = mailtoUrl;
+    }, 500);
   };
 
   // Filter job positions

@@ -67,10 +67,14 @@ export const InquiryPopupModal = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    const waText = `Hi The Social Setu Team,\n\nI have an inquiry from your popup form:\n- *Name*: ${formData.name}\n- *Phone*: ${formData.phone}\n- *Email*: ${formData.email}\n- *Service*: ${formData.service}\n- *Budget*: ${formData.budget}`;
+    const waUrl = `https://wa.me/916267137892?text=${encodeURIComponent(waText)}`;
+
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
       sessionStorage.setItem('setu_popup_dismissed', 'true');
+      window.open(waUrl, '_blank');
 
       if (window.dataLayer) {
         window.dataLayer.push({
@@ -84,7 +88,7 @@ export const InquiryPopupModal = () => {
       setTimeout(() => {
         setIsOpen(false);
       }, 3000);
-    }, 600);
+    }, 500);
   };
 
   if (!isOpen) return null;

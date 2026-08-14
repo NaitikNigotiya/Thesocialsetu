@@ -55,6 +55,13 @@ export const CaseStudyDetail = () => {
                 </span>
               ))}
             </div>
+
+            {/* Hero Main Case Study Image */}
+            {study.heroImage && (
+              <div style={{ marginTop: '2.5rem', borderRadius: 'var(--radius-md)', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.15)', boxShadow: '0 12px 40px rgba(0,0,0,0.3)' }}>
+                <img src={study.heroImage} alt={study.title} style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '520px', objectFit: 'cover' }} />
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -80,7 +87,7 @@ export const CaseStudyDetail = () => {
       {/* Problem vs Strategy Breakdown */}
       <section className="section" style={{ backgroundColor: '#ffffff' }}>
         <div className="container" style={{ maxWidth: '960px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2.5rem', marginBottom: '3rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2.5rem', marginBottom: '2.5rem' }}>
             <Card style={{ borderLeft: '4px solid #ef4444' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: '#ef4444', fontWeight: 700, marginBottom: '0.75rem' }}>
                 <AlertCircle size={22} />
@@ -103,6 +110,13 @@ export const CaseStudyDetail = () => {
               </p>
             </Card>
           </div>
+
+          {/* Secondary Visual Asset / Proof Graphic */}
+          {study.secondaryImage && (
+            <div style={{ marginBottom: '2.5rem', borderRadius: 'var(--radius-md)', overflow: 'hidden', border: '1px solid rgba(25, 33, 47, 0.08)', boxShadow: '0 8px 30px rgba(15,23,38,0.06)' }}>
+              <img src={study.secondaryImage} alt={`${study.title} Strategy Blueprint`} style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '480px', objectFit: 'cover' }} />
+            </div>
+          )}
 
           {/* Key Takeaway Box */}
           {study.keyTakeaway && (

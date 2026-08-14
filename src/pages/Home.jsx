@@ -35,10 +35,15 @@ export const Home = () => {
   const handleInquirySubmit = (e) => {
     e.preventDefault();
     setInquirySubmitting(true);
+
+    const waText = `Hi The Social Setu Team,\n\nI have an inquiry from your website:\n- *Name*: ${inquiryData.name}\n- *Phone*: ${inquiryData.phone}\n- *Email*: ${inquiryData.email || 'N/A'}\n- *Service*: ${inquiryData.service}\n- *Budget*: ${inquiryData.budget}`;
+    const waUrl = `https://wa.me/916267137892?text=${encodeURIComponent(waText)}`;
+
     setTimeout(() => {
       setInquirySubmitting(false);
       setInquirySubmitted(true);
-    }, 600);
+      window.open(waUrl, '_blank');
+    }, 500);
   };
 
   return (

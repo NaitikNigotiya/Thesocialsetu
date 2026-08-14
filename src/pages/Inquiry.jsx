@@ -159,9 +159,13 @@ export const Inquiry = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    const waText = `Hi The Social Setu Team,\n\nI want to discuss digital marketing services for my business:\n- *Name*: ${formData.name}\n- *Business*: ${formData.businessName}\n- *Phone*: ${formData.phone}\n- *Email*: ${formData.email || 'N/A'}\n- *Industry*: ${formData.businessType}\n- *Primary Service*: ${formData.primaryService}\n- *Package*: ${formData.selectedPackage}\n- *Monthly Budget*: ${formData.marketingBudget}\n- *Website/Insta*: ${formData.website || formData.instagramHandle || 'N/A'}\n- *Notes*: ${formData.message || 'N/A'}`;
+    const waUrl = `https://wa.me/916267137892?text=${encodeURIComponent(waText)}`;
+
     setTimeout(() => {
       setIsSubmitting(false);
       setFormSubmitted(true);
+      window.open(waUrl, '_blank');
       if (window.dataLayer) {
         window.dataLayer.push({
           event: 'inquiry_submitted',
@@ -171,12 +175,16 @@ export const Inquiry = () => {
           budget: formData.marketingBudget
         });
       }
-    }, 600);
+    }, 500);
   };
 
   const handleBookingSubmit = (e) => {
     e.preventDefault();
     setBookingConfirmed(true);
+
+    const waText = `Hi The Social Setu Team,\n\nI would like to book a 1-on-1 strategy call:\n- *Date*: ${bookingData.preferredDate || 'Earliest Available'}\n- *Time Slot*: ${bookingData.preferredTime}`;
+    const waUrl = `https://wa.me/916267137892?text=${encodeURIComponent(waText)}`;
+    window.open(waUrl, '_blank');
   };
 
   return (
